@@ -1,0 +1,42 @@
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 260px;
+    background: #ffffff;
+    color: black;
+    z-index: 100;
+    border: 1px solid black;
+    transition: all 0.5s ease;
+}
+
+.sidebar-logo {
+    margin: 1rem;
+    width: 50%;
+}
+
+.sidebar-menu{
+    margin: 1rem;
+    background-color: rgb(13, 132, 51);
+    height: 100%;
+    /* overflow-y: scroll; */
+}
+
+.nav-links{
+    list-style-type: none;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: black;
+}
+
+.nav-links .nav-item-text{
+    font-size: larger;
+    font-weight: 500;
+}
+
+.sidebar-division{
+    margin-top: 2rem;
+}
