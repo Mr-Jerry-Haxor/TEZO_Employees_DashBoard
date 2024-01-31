@@ -1,5 +1,6 @@
 .sidebar{
     position: fixed;
+    display: block;
     top: 0;
     left: 0;
     height: 100%;
@@ -7,36 +8,143 @@
     background: #ffffff;
     color: black;
     z-index: 100;
-    border: 1px solid black;
     transition: all 0.5s ease;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-260px);
 }
 
-.sidebar-logo {
+.toggleicon{
+    transform: rotate(180deg);
+}
+
+.sidebar-header {
     margin: 1rem;
-    width: 50%;
+    display: inline-flex;
+    justify-content: space-between;
+}
+.sidebar-header .logo{
+    justify-content: flex-end;
+}
+
+.sidebar-header .toggle{
+    position: absolute;
+    left: 245px;
+    justify-content: flex-end;
+    border-radius: 50%;
+}
+
+
+.sidebar.toggleopen {
+    transform: translateX(0);
+}
+
+.sidebar-open {
+    transition: all 0.5s ease;
+    margin-left: 280px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.sidebar.toggleopen .toggleicon {
+    transform: rotate(0deg);
+    transition: ease-in-out;
 }
 
 .sidebar-menu{
     margin: 1rem;
-    background-color: rgb(13, 132, 51);
+    background-color: rgb(255, 255, 255);
     height: 100%;
-    /* overflow-y: scroll; */
+    
 }
 
-.nav-links{
+.nav-all-links{
     list-style-type: none;
 }
 
-.nav-links a{
+.nav-department-links a{
+    text-decoration: none;
+    color: black;
+    padding-left: 1rem;
+    width: 100%;
+    display: block;
+}
+
+.nav-all-links a{
     text-decoration: none;
     color: black;
 }
 
-.nav-links .nav-item-text{
+.nav-all-links .nav-item-text{
     font-size: larger;
     font-weight: 500;
 }
 
+
+.sidebar-navitems {
+    display: inline-grid;;
+    grid-template-columns: 1fr 7fr 1fr;
+    align-items: center;
+    gap: 5px;
+}
+
+.sidebar-navitems-department{
+    display: inline-grid;;
+    grid-template-columns: 8fr 2fr;
+    align-items: center;
+    gap: 5px;
+}
+
 .sidebar-division{
-    margin-top: 2rem;
+    margin-top: 1rem;
+}
+
+.sidebar-navitems-departments{
+    list-style-type: disc;
+    list-style-position: inside;
+    padding: 0.4rem;
+}
+
+.sidebar-navitems-departments:hover{
+    background-color: rgb(177, 174, 174);
+    border-radius: 50px;
+    
+}
+
+.sidebar-menu-departments-count{
+    text-align: right;
+    background-color: rgb(255, 89, 89);
+    border-radius: 50px;
+    padding: 0 0.5rem;
+    justify-content: end;
+}
+
+.submenu {
+    display: none;
+}
+
+.submenuopen {
+    display: block;
+    margin: 0.5rem 2rem;
+}
+
+.submenuopen .submenu-arrow {
+    transform: rotate(180deg);
+    transition: ease-in-out;
+}
+
+.sidebar-update{
+    border: 2px solid red;
+    border-radius: 10px;
+    background-color: #ff9b9b;
+    padding: 1rem;
+    margin-top: 0.5rem;
+}
+
+.sidebar-update p{
+    font-size: x-small;
+}
+
+.sidebar-title{
+    font-size: smaller;
+    margin-bottom: 0.3rem;
+    color: gray;
 }

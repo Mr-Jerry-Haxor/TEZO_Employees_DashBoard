@@ -5,3 +5,106 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+body{
+  background-color: #FCFCFC;
+}
+
+.main-container{
+  margin-left: 1rem;
+}
+
+/* Search bar styles */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin-left: 10px;
+}
+
+.search-bar i {
+    margin-right: 10px;
+    color: #888;
+}
+
+.icons i {
+    margin-left: 10px;
+    color: #888;
+}
+
+
+
+/* Table filters styles */
+.table-filters ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.table-filters li {
+    margin: 0 5px;
+}
+
+.table-filters a {
+    text-decoration: none;
+    color: #888;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.table-filters a:hover {
+    background-color: #f2f2f2;
+}
+
+
+.employees-table table{
+  width: 95%;
+}
+
+table{
+  margin-left: 1.5rem;
+}
+
+thead {
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+}
+
+td.profile-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+tr {
+  border-bottom: 10px solid gray;
+}
