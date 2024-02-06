@@ -176,3 +176,12 @@ cursor: pointer;
     border-radius: 5px;
     cursor: pointer;
 }
+
+.white-red-button{
+    background-color: #ffffff;
+    color: #ff3c3c;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid #ff4444;
+    border-radius: 5px;
+    cursor: pointer;
+}

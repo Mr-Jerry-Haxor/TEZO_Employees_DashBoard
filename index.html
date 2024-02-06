@@ -25,16 +25,14 @@
             <ul class="nav-links">
                 <li> 
                     <div class="sidebar-navitems" onclick="toggleSubmenu()">
-                        <img src="assets/icon1.png" alt="">
+                        <img src="assets/Horizontal nav/Dashboard.svg" alt="">
                         <span class="nav-item-text">Dashboard</span>
-                        <i class='bx bx-chevron-right'></i>
                     </div>
                 </li>
                 <li>
                     <div class="sidebar-navitems" onclick="toggleSubmenu('submenu1')">
-                        <img src="assets/bx-home-smile.png" alt="">
+                        <img src="assets/Horizontal nav/Employees.svg" alt="">
                         <span class="nav-item-text">Employees</span>
-                        <i class='bx bx-chevron-right' class="submenu-arrow"></i>
                     </div>
                     <div class="submenu" id="submenu1">
                         <ul>
@@ -52,7 +50,7 @@
                 <li>
                     <a href="#">
                         <div class="sidebar-navitems">
-                            <img src="assets/bx-lock.png" alt="">
+                            <img src="assets/Horizontal nav/Roles.svg" alt="">
                             <span class="nav-item-text">Roles</span>
                             <i class='bx bx-chevron-right'></i>
                         </div>
@@ -61,8 +59,8 @@
                 <li>
                     <a href="#">
                     <div class="sidebar-navitems">
-                            <img src="assets/bx-lock.png" alt="">
-                            <span class="nav-item-text">Assign User Roles</span>
+                            <img src="assets/Horizontal nav/assign user.svg" alt="">
+                            <span class="nav-item-text">Access Rights</span>
                             <i class='bx bx-chevron-right'></i>
                     </div>
                     </a>
@@ -83,10 +81,10 @@
             <img src="assets/bx-search.png" alt="">
             <input type="text" placeholder="Search...">
             <div class="icons">
-                <img src="assets/IconButton.png" alt="">
-                <img src="assets/icon1.png" alt="">
-                <img src="assets/icon2.png" alt="">
-                <img src="assets/icon3.png" alt="">
+                <img src="assets/Vertical Navbar/Language.svg" alt="">
+                <img src="assets/Vertical Navbar/Categories.svg" alt="">
+                <img src="assets/Vertical Navbar/Mode.svg" alt="">
+                <img src="assets/Vertical Navbar/Notifications.svg" alt="">
                 <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
                 <div class="search-bar-profile-info">
                     <span >John Abraham</span>
@@ -143,34 +141,46 @@
             </ul>
         </div>
         <div class="filters-table-container">
-            <div class="filters-title">
-                <h4>Filters</h4>
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M7 11h10v2H7zM4 7h16v2H4zm6 8h4v2h-4z"></path></svg>
-                <select name="Status" id="Status">
-                    <option value="Status">Status</option>
-                    <option value="Active">Active</option>
-                    <option value="Inactive">Inactive</option>
-                </select>
-                <select name="location" id="location">
-                    <option value="location">Location</option>
-                    <option value="Hyderabad">Hyderabad</option>
-                    <option value="New York">New York</option>
-                    <option value="London">London</option>
-                </select>
-                <select name="Department" id="Department">
-                    <option value="Department">Department</option>
-                    <option value="Product Engineering">Product Engineering</option>
-                    <option value="Marketing">Marketing</option>
-                    <option value="Finance">Finance</option>
-                </select>
+            <div class="filters-container">
+                <div class="filter-content">
+                    <h4>Filters</h4>
+                    <i class='bx bx-filter' ></i>
+                    <select name="Status" id="Status">
+                        <option value="Status">Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                    <select name="location" id="location">
+                        <option value="location">Location</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="New York">New York</option>
+                        <option value="London">London</option>
+                    </select>
+                    <select name="Department" id="Department">
+                        <option value="Department">Department</option>
+                        <option value="Product Engineering">Product Engineering</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Finance">Finance</option>
+                    </select>
+                </div>
+                
 
                 <div  class="filters-buttons">
-                    <button class="reset-button">Reset</button>
-                    <button class="apply-button">Apply</button>
+                    <button class="reset-button white-red-button">Reset</button>
+                    <button class="apply-button red-white-button">Apply</button>
                 </div>
             
             </div>
             <div class="employees-table">
+                <div class="table-modify">
+                    <div class="table-modify-delete">
+                        <img src="assets/Interface/arrow-turn left -down.svg" alt="">
+                        <button class="lightred-red-button">Delete</button>
+                    </div>
+                    <div class="table-modify-add">
+                        <img src="assets/table-add.png" alt="">
+                    </div>
+                </div>
                 <div class="employees-table-data">
                     <table>
                         <thead>
@@ -178,18 +188,18 @@
                                 <th class="checkbox">
                                     <input type="checkbox" name="" id="">
                                 </th>
-                                <th>user</th>
-                                <th>location</th>
-                                <th>Department</th>
-                                <th>Role</th>
-                                <th>Emp id</th>
-                                <th>Status</th>
-                                <th>joint DT</th>
+                                <th>user <span><i class='bx bx-expand-alt' ></i></span></th>
+                                <th>location <span><i class='bx bx-expand-alt' ></i></span></th>
+                                <th>Department <span><i class='bx bx-expand-alt' ></i></span></th>
+                                <th>Role <span><i class='bx bx-expand-alt' ></i></span></th>
+                                <th>Emp id <span><i class='bx bx-expand-alt' ></i></span></th>
+                                <th>Status <span><i class='bx bx-expand-alt' ></i></span></th>
+                                <th>joint DT <span><i class='bx bx-expand-alt' ></i></span></th>
                                 <th>...</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr class="border-bottom">
                                 <td>
                                     <input type="checkbox" name="" id="">
                                 </td>
@@ -206,11 +216,11 @@
                                 <td>Product Engineering</td>
                                 <td>Full Stack Developer</td>
                                 <td>Tz00231</td>
-                                <td class="table-status-active">Active</td>
+                                <td><span class="table-status-active">Active</span></td>
                                 <td>12/03/2024</td>
                                 <td>...</td>
                             </tr>
-                            <tr>
+                            <tr class="border-bottom">
                                 <td>
                                     <input type="checkbox" name="" id="">
                                 </td>
@@ -227,11 +237,11 @@
                                 <td>Marketing</td>
                                 <td>Graphic Designer</td>
                                 <td>Tz00232</td>
-                                <td class="table-status-active">Active</td>
+                                <td><span class="table-status-active">Active</span></td>
                                 <td>12/05/2024</td>
                                 <td>...</td>
                             </tr>
-                            <tr>
+                            <tr class="border-bottom">
                                 <td>
                                     <input type="checkbox" name="" id="">
                                 </td>
@@ -248,11 +258,11 @@
                                 <td>Finance</td>
                                 <td>Accountant</td>
                                 <td>Tz00233</td>
-                                <td class="table-status-active">Active</td>
+                                <td><span class="table-status-active">Active</span></td>
                                 <td>12/07/2024</td>
                                 <td>...</td>
                             </tr>
-                            <tr>
+                            <tr class="border-bottom">
                                 <td>
                                     <input type="checkbox" name="" id="">
                                 </td>
@@ -269,11 +279,11 @@
                                 <td>Product Engineering</td>
                                 <td>Full Stack Developer</td>
                                 <td>Tz00231</td>
-                                <td class="table-status-active">Active</td>
+                                <td><span class="table-status-active">Active</span></td>
                                 <td>12/03/2024</td>
                                 <td>...</td>
                             </tr>
-                            <tr>
+                            <tr class="border-bottom">
                                 <td>
                                     <input type="checkbox" name="" id="">
                                 </td>
@@ -290,11 +300,11 @@
                                 <td>Marketing</td>
                                 <td>Graphic Designer</td>
                                 <td>Tz00232</td>
-                                <td class="table-status-active">Active</td>
+                                <td><span class="table-status-active">Active</span></td>
                                 <td>12/05/2024</td>
                                 <td>...</td>
                             </tr>
-                            <tr>
+                            <tr class="border-bottom">
                                 <td>
                                     <input type="checkbox" name="" id="">
                                 </td>
@@ -311,11 +321,11 @@
                                 <td>Finance</td>
                                 <td>Accountant</td>
                                 <td>Tz00233</td>
-                                <td class="table-status-active">Active</td>
+                                <td><span class="table-status-active">Active</span></td>
                                 <td>12/07/2024</td>
                                 <td>...</td>
                             </tr>
-                            <tr>
+                            <tr class="border-bottom">
                                 <td>
                                     <input type="checkbox" name="" id="">
                                 </td>
@@ -332,11 +342,11 @@
                                 <td>Product Engineering</td>
                                 <td>Full Stack Developer</td>
                                 <td>Tz00231</td>
-                                <td class="table-status-active">Active</td>
+                                <td><span class="table-status-active">Active</span></td>
                                 <td>12/03/2024</td>
                                 <td>...</td>
                             </tr>
-                            <tr>
+                            <tr class="border-bottom">
                                 <td>
                                     <input type="checkbox" name="" id="">
                                 </td>
@@ -353,11 +363,11 @@
                                 <td>Marketing</td>
                                 <td>Graphic Designer</td>
                                 <td>Tz00232</td>
-                                <td class="table-status-active">Active</td>
+                                <td><span class="table-status-active">Active</span></td>
                                 <td>12/05/2024</td>
                                 <td>...</td>
                             </tr>
-                            <tr>
+                            <tr class="border-bottom">
                                 <td>
                                     <input type="checkbox" name="" id="">
                                 </td>
@@ -374,11 +384,11 @@
                                 <td>Finance</td>
                                 <td>Accountant</td>
                                 <td>Tz00233</td>
-                                <td class="table-status-active">Active</td>
+                                <td><span class="table-status-active">Active</span></td>
                                 <td>12/07/2024</td>
                                 <td>...</td>
                             </tr>
-                            <tr>
+                            <tr class="border-bottom">
                                 <td>
                                     <input type="checkbox" name="" id="">
                                 </td>
@@ -395,11 +405,11 @@
                                 <td>Product Engineering</td>
                                 <td>Full Stack Developer</td>
                                 <td>Tz00231</td>
-                                <td class="table-status-active">Active</td>
+                                <td><span class="table-status-active">Active</span></td>
                                 <td>12/03/2024</td>
                                 <td>...</td>
                             </tr>
-                            <tr>
+                            <tr class="border-bottom">
                                 <td>
                                     <input type="checkbox" name="" id="">
                                 </td>
@@ -416,11 +426,11 @@
                                 <td>Marketing</td>
                                 <td>Graphic Designer</td>
                                 <td>Tz00232</td>
-                                <td class="table-status-active">Active</td>
+                                <td><span class="table-status-active">Active</span></td>
                                 <td>12/05/2024</td>
                                 <td>...</td>
                             </tr>
-                            <tr>
+                            <tr class="border-bottom">
                                 <td>
                                     <input type="checkbox" name="" id="">
                                 </td>
@@ -437,11 +447,11 @@
                                 <td>Finance</td>
                                 <td>Accountant</td>
                                 <td>Tz00233</td>
-                                <td class="table-status-active">Active</td>
+                                <td><span class="table-status-active">Active</span></td>
                                 <td>12/07/2024</td>
                                 <td>...</td>
                             </tr>
-                            <tr>
+                            <tr class="border-bottom">
                                 <td>
                                     <input type="checkbox" name="" id="">
                                 </td>
@@ -458,11 +468,11 @@
                                 <td>Product Engineering</td>
                                 <td>Full Stack Developer</td>
                                 <td>Tz00231</td>
-                                <td class="table-status-active">Active</td>
+                                <td><span class="table-status-active">Active</span></td>
                                 <td>12/03/2024</td>
                                 <td>...</td>
                             </tr>
-                            <tr>
+                            <tr class="border-bottom">
                                 <td>
                                     <input type="checkbox" name="" id="">
                                 </td>
@@ -479,11 +489,11 @@
                                 <td>Marketing</td>
                                 <td>Graphic Designer</td>
                                 <td>Tz00232</td>
-                                <td class="table-status-active">Active</td>
+                                <td><span class="table-status-active">Active</span></td>
                                 <td>12/05/2024</td>
                                 <td>...</td>
                             </tr>
-                            <tr>
+                            <tr class="border-bottom">
                                 <td>
                                     <input type="checkbox" name="" id="">
                                 </td>
@@ -500,7 +510,7 @@
                                 <td>Finance</td>
                                 <td>Accountant</td>
                                 <td>Tz00233</td>
-                                <td class="table-status-active">Active</td>
+                                <td><span class="table-status-active">Active</span></td>
                                 <td>12/07/2024</td>
                                 <td>...</td>
                             </tr>
