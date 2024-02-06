@@ -69,6 +69,7 @@ body{
 
 .employees-table table{
   width: 95%;
+  border-bottom: #888;
 }
 
 table{
