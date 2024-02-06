@@ -24,6 +24,7 @@
 }
 .sidebar-header .logo{
     justify-content: flex-end;
+    width: 120px;
 }
 
 .sidebar-header .toggle{
@@ -56,7 +57,7 @@
     
 }
 
-.nav-all-links{
+.nav-links{
     list-style-type: none;
 }
 
@@ -68,7 +69,7 @@
     display: block;
 }
 
-.nav-all-links a{
+.nav-links a{
     text-decoration: none;
     color: black;
 }
@@ -131,10 +132,17 @@
     transition: ease-in-out;
 }
 
+.side-menubar-foorter{
+    /* keep at bottom of that section */
+    position: absolute;
+    bottom: 0;
+    margin: 1rem;
+
+}
 .sidebar-update{
-    border: 2px solid red;
     border-radius: 10px;
-    background-color: #ff9b9b;
+    color: red;
+    background-color: #ff9b9b4e;
     padding: 1rem;
     margin-top: 0.5rem;
 }
@@ -147,4 +155,24 @@
     font-size: smaller;
     margin-bottom: 0.3rem;
     color: gray;
+}
+
+
+.lightred-red-button{
+background-color: #ffb2b2;
+color: rgb(255, 27, 27);
+padding: 0.3rem 0.5rem;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+
+.red-white-button{
+    background-color: #ff3f3f;
+    color: white;
+    padding: 0.3rem 0.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

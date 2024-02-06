@@ -11,7 +11,7 @@ body{
 }
 
 .main-container{
-  margin-left: 1rem;
+  margin-left: 1.5rem;
 }
 
 /* Search bar styles */
@@ -20,7 +20,8 @@ body{
     align-items: center;
     background-color: #f2f2f2;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
+    margin: 1rem 1rem 1rem 0;  
 }
 
 .search-bar input[type="text"] {
@@ -36,6 +37,22 @@ body{
     color: #888;
 }
 
+.search-bar-profile-info{
+  display: inline-flex;
+  flex-direction: column;
+  font-size: small;
+  font-weight: 600;
+}
+.search-bar-profile-info .role{
+  font-weight: 900;
+}
+.icons{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+}
+
 .icons i {
     margin-left: 10px;
     color: #888;
@@ -43,16 +60,88 @@ body{
 
 
 
+
+.main-container-title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 1rem;
+}
+
+.main-container-title .title{
+  margin-right: 10px;
+}
+
+.main-container-title .buttons{
+  justify-content: flex-end;
+}
+
+.export-button{
+  background-color: #ffffff;
+  color: #b4b4b4;
+  padding: 0.5rem;
+  border: 1px solid #b4b4b4;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.add-employee-button{
+  background-color: #ff3f3f;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+
+
+
+.filters-title{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.filters-buttons{
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
 /* Table filters styles */
+
+.table-filters{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+
+}
 .table-filters ul {
     list-style-type: none;
-    display: flex;
-    justify-content: center;
+    display: flex; 
     margin-top: 10px;
+    width: 95%;
+    justify-content: space-between;
 }
 
 .table-filters li {
-    margin: 0 5px;
+    margin: 0 2.5px;
+    background-color: #cfcfcf;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.table-filters-icon{
+  background-color: transparent !important;
+}
+
+.table-filters li:active{
+  background-color: #ff3f3f;
+  color: white;
 }
 
 .table-filters a {
@@ -60,10 +149,6 @@ body{
     color: #888;
     padding: 5px;
     border-radius: 5px;
-}
-
-.table-filters a:hover {
-    background-color: #f2f2f2;
 }
 
 
@@ -74,6 +159,8 @@ body{
 
 table{
   margin-left: 1.5rem;
+  font-size: small;
+  font-weight: 500;
 }
 
 thead {
@@ -97,10 +184,11 @@ td.profile-cell {
   width: 50px;
   height: 50px;
   margin-right: 10px;
+  border-radius: 50%;
 }
 
 .profile-info {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
 }
 

@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="sidebar.css">
     <script src="index.js"></script>
-    <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -23,19 +22,12 @@
         </div>
         <div class="sidebar-menu">
             <p class="sidebar-title">All</p>
-            <ul class="nav-all-links">
+            <ul class="nav-links">
                 <li> 
                     <div class="sidebar-navitems" onclick="toggleSubmenu()">
-                        <img src="assets/bx-lock.png" alt="">
+                        <img src="assets/icon1.png" alt="">
                         <span class="nav-item-text">Dashboard</span>
                         <i class='bx bx-chevron-right'></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="sidebar-navitems" onclick="toggleSubmenu()">
-                            <img src="assets/bx-lock.png" alt="">
-                            <span class="nav-item-text">Roles</span>
-                            <i class='bx bx-chevron-right'></i>
                     </div>
                 </li>
                 <li>
@@ -79,60 +71,106 @@
             <div class="side-menubar-foorter">
                 <div class="sidebar-update">
                     <h5>Install new update 2.3.1A</h5>
-                    <p>Allow thw launch the new update for the AD application</p>
-                    <span><button>Dismiss</button></span>
-                    <span><button>Accept</button></span>
+                    <p>Allow to launch the new update for the AD application</p>
+                    <span><button class="lightred-red-button">Dismiss</button></span>
+                    <span><button class="red-white-button">Accept</button></span>
                 </div>
             </div>
         </div>
     </div>
-        <div class="main-container">
-            <div class="search-bar">
-                <img src="assets/bx-search.png" alt="">
-                <input type="text" placeholder="Search...">
-                
-                <div class="icons">
-                    <img src="assets/IconButton.png" alt="">
-                    <img src="assets/icon1.png" alt="">
-                    <img src="assets/icon2.png" alt="">
-                    <img src="assets/icon3.png" alt="">
-                    <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
-                    <span class="profile-name">John Doe</span>
-                    <span class="profile-email">john.doe@example.com</span>
+    <div class="main-container">
+        <div class="search-bar">
+            <img src="assets/bx-search.png" alt="">
+            <input type="text" placeholder="Search...">
+            <div class="icons">
+                <img src="assets/IconButton.png" alt="">
+                <img src="assets/icon1.png" alt="">
+                <img src="assets/icon2.png" alt="">
+                <img src="assets/icon3.png" alt="">
+                <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
+                <div class="search-bar-profile-info">
+                    <span >John Abraham</span>
+                    <span class="role">Admin</span>
                 </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path></svg>
             </div>
-            <div class="table-filters">
-                <ul>
-                    <li><a href="#" id="filter-A">A</a></li>
-                    <li><a href="#" id="filter-B">B</a></li>
-                    <li><a href="#" id="filter-C">C</a></li>
-                    <li><a href="#" id="filter-D">D</a></li>
-                    <li><a href="#" id="filter-E">E</a></li>
-                    <li><a href="#" id="filter-F">F</a></li>
-                    <li><a href="#" id="filter-G">G</a></li>
-                    <li><a href="#" id="filter-H">H</a></li>
-                    <li><a href="#" id="filter-I">I</a></li>
-                    <li><a href="#" id="filter-J">J</a></li>
-                    <li><a href="#" id="filter-K">K</a></li>
-                    <li><a href="#" id="filter-L">L</a></li>
-                    <li><a href="#" id="filter-M">M</a></li>
-                    <li><a href="#" id="filter-N">N</a></li>
-                    <li><a href="#" id="filter-O">O</a></li>
-                    <li><a href="#" id="filter-P">P</a></li>
-                    <li><a href="#" id="filter-Q">Q</a></li>
-                    <li><a href="#" id="filter-R">R</a></li>
-                    <li><a href="#" id="filter-S">S</a></li>
-                    <li><a href="#" id="filter-T">T</a></li>
-                    <li><a href="#" id="filter-U">U</a></li>
-                    <li><a href="#" id="filter-V">V</a></li>
-                    <li><a href="#" id="filter-W">W</a></li>
-                    <li><a href="#" id="filter-X">X</a></li>
-                    <li><a href="#" id="filter-Y">Y</a></li>
-                    <li><a href="#" id="filter-Z">Z</a></li>
-                </ul>
+        </div>
+        <div class="main-container-title">
+            <div class="title">
+                <h4>Employees</h4>
+                <p>Find all of your company's employee accounts and their associated roles.</p>
+            </div>
+            <div class="buttons">
+                <button class="export-button">
+                    <i class='bx bx-export' ></i>
+                    <span class="nav-item-text">Export</span>
+                </button>
+                <button class="add-employee-button">
+                    <i class='bx bx-plus'></i>
+                    <span class="nav-item-text">Add Employees</span>
+                </button>
+            </div>
+        </div>
+        <div class="table-filters">
+            <ul>
+                <li class="table-filters-icon"><img src="assets/Vector.png" alt=""></li>
+                <li><a href="#" id="filter-A">A</a></li>
+                <li><a href="#" id="filter-B">B</a></li>
+                <li><a href="#" id="filter-C">C</a></li>
+                <li><a href="#" id="filter-D">D</a></li>
+                <li><a href="#" id="filter-E">E</a></li>
+                <li><a href="#" id="filter-F">F</a></li>
+                <li><a href="#" id="filter-G">G</a></li>
+                <li><a href="#" id="filter-H">H</a></li>
+                <li><a href="#" id="filter-I">I</a></li>
+                <li><a href="#" id="filter-J">J</a></li>
+                <li><a href="#" id="filter-K">K</a></li>
+                <li><a href="#" id="filter-L">L</a></li>
+                <li><a href="#" id="filter-M">M</a></li>
+                <li><a href="#" id="filter-N">N</a></li>
+                <li><a href="#" id="filter-O">O</a></li>
+                <li><a href="#" id="filter-P">P</a></li>
+                <li><a href="#" id="filter-Q">Q</a></li>
+                <li><a href="#" id="filter-R">R</a></li>
+                <li><a href="#" id="filter-S">S</a></li>
+                <li><a href="#" id="filter-T">T</a></li>
+                <li><a href="#" id="filter-U">U</a></li>
+                <li><a href="#" id="filter-V">V</a></li>
+                <li><a href="#" id="filter-W">W</a></li>
+                <li><a href="#" id="filter-X">X</a></li>
+                <li><a href="#" id="filter-Y">Y</a></li>
+                <li><a href="#" id="filter-Z">Z</a></li>
+            </ul>
+        </div>
+        <div class="filters-table-container">
+            <div class="filters-title">
+                <h4>Filters</h4>
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M7 11h10v2H7zM4 7h16v2H4zm6 8h4v2h-4z"></path></svg>
+                <select name="Status" id="Status">
+                    <option value="Status">Status</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+                <select name="location" id="location">
+                    <option value="location">Location</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="New York">New York</option>
+                    <option value="London">London</option>
+                </select>
+                <select name="Department" id="Department">
+                    <option value="Department">Department</option>
+                    <option value="Product Engineering">Product Engineering</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Finance">Finance</option>
+                </select>
+
+                <div  class="filters-buttons">
+                    <button class="reset-button">Reset</button>
+                    <button class="apply-button">Apply</button>
+                </div>
+            
             </div>
             <div class="employees-table">
-                
                 <div class="employees-table-data">
                     <table>
                         <thead>
@@ -151,323 +189,321 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td>
-                                        <div class="profile-container">
-                                            <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
-                                            <div class="profile-info">
-                                                <span class="profile-name">John Doe</span>
-                                                <span class="profile-email">john.doe@example.com</span>
-                                            </div>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="" id="">
+                                </td>
+                                <td>
+                                    <div class="profile-container">
+                                        <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
+                                        <div class="profile-info">
+                                            <span class="profile-name">John Doe</span>
+                                            <span class="profile-email">john.doe@example.com</span>
                                         </div>
-                                    </td>
-                                    <td>Hyderabad</td>
-                                    <td>Product Engineering</td>
-                                    <td>Full Stack Developer</td>
-                                    <td>Tz00231</td>
-                                    <td class="table-status-active">Active</td>
-                                    <td>12/03/2024</td>
-                                    <td>...</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td>
-                                        <div class="profile-container">
-                                            <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
-                                            <div class="profile-info">
-                                                <span class="profile-name">Jane Smith</span>
-                                                <span class="profile-email">jane.smith@example.com</span>
-                                            </div>
+                                    </div>
+                                </td>
+                                <td>Hyderabad</td>
+                                <td>Product Engineering</td>
+                                <td>Full Stack Developer</td>
+                                <td>Tz00231</td>
+                                <td class="table-status-active">Active</td>
+                                <td>12/03/2024</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="" id="">
+                                </td>
+                                <td>
+                                    <div class="profile-container">
+                                        <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
+                                        <div class="profile-info">
+                                            <span class="profile-name">Jane Smith</span>
+                                            <span class="profile-email">jane.smith@example.com</span>
                                         </div>
-                                    </td>
-                                    <td>New York</td>
-                                    <td>Marketing</td>
-                                    <td>Graphic Designer</td>
-                                    <td>Tz00232</td>
-                                    <td class="table-status-active">Active</td>
-                                    <td>12/05/2024</td>
-                                    <td>...</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td>
-                                        <div class="profile-container">
-                                            <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
-                                            <div class="profile-info">
-                                                <span class="profile-name">Alex Johnson</span>
-                                                <span class="profile-email">alex.johnson@example.com</span>
-                                            </div>
+                                    </div>
+                                </td>
+                                <td>New York</td>
+                                <td>Marketing</td>
+                                <td>Graphic Designer</td>
+                                <td>Tz00232</td>
+                                <td class="table-status-active">Active</td>
+                                <td>12/05/2024</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="" id="">
+                                </td>
+                                <td>
+                                    <div class="profile-container">
+                                        <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
+                                        <div class="profile-info">
+                                            <span class="profile-name">Alex Johnson</span>
+                                            <span class="profile-email">alex.johnson@example.com</span>
                                         </div>
-                                    </td>
-                                    <td>London</td>
-                                    <td>Finance</td>
-                                    <td>Accountant</td>
-                                    <td>Tz00233</td>
-                                    <td class="table-status-active">Active</td>
-                                    <td>12/07/2024</td>
-                                    <td>...</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td>
-                                        <div class="profile-container">
-                                            <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
-                                            <div class="profile-info">
-                                                <span class="profile-name">John Doe</span>
-                                                <span class="profile-email">john.doe@example.com</span>
-                                            </div>
+                                    </div>
+                                </td>
+                                <td>London</td>
+                                <td>Finance</td>
+                                <td>Accountant</td>
+                                <td>Tz00233</td>
+                                <td class="table-status-active">Active</td>
+                                <td>12/07/2024</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="" id="">
+                                </td>
+                                <td>
+                                    <div class="profile-container">
+                                        <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
+                                        <div class="profile-info">
+                                            <span class="profile-name">John Doe</span>
+                                            <span class="profile-email">john.doe@example.com</span>
                                         </div>
-                                    </td>
-                                    <td>Hyderabad</td>
-                                    <td>Product Engineering</td>
-                                    <td>Full Stack Developer</td>
-                                    <td>Tz00231</td>
-                                    <td class="table-status-active">Active</td>
-                                    <td>12/03/2024</td>
-                                    <td>...</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td>
-                                        <div class="profile-container">
-                                            <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
-                                            <div class="profile-info">
-                                                <span class="profile-name">Jane Smith</span>
-                                                <span class="profile-email">jane.smith@example.com</span>
-                                            </div>
+                                    </div>
+                                </td>
+                                <td>Hyderabad</td>
+                                <td>Product Engineering</td>
+                                <td>Full Stack Developer</td>
+                                <td>Tz00231</td>
+                                <td class="table-status-active">Active</td>
+                                <td>12/03/2024</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="" id="">
+                                </td>
+                                <td>
+                                    <div class="profile-container">
+                                        <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
+                                        <div class="profile-info">
+                                            <span class="profile-name">Jane Smith</span>
+                                            <span class="profile-email">jane.smith@example.com</span>
                                         </div>
-                                    </td>
-                                    <td>New York</td>
-                                    <td>Marketing</td>
-                                    <td>Graphic Designer</td>
-                                    <td>Tz00232</td>
-                                    <td class="table-status-active">Active</td>
-                                    <td>12/05/2024</td>
-                                    <td>...</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td>
-                                        <div class="profile-container">
-                                            <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
-                                            <div class="profile-info">
-                                                <span class="profile-name">Alex Johnson</span>
-                                                <span class="profile-email">alex.johnson@example.com</span>
-                                            </div>
+                                    </div>
+                                </td>
+                                <td>New York</td>
+                                <td>Marketing</td>
+                                <td>Graphic Designer</td>
+                                <td>Tz00232</td>
+                                <td class="table-status-active">Active</td>
+                                <td>12/05/2024</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="" id="">
+                                </td>
+                                <td>
+                                    <div class="profile-container">
+                                        <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
+                                        <div class="profile-info">
+                                            <span class="profile-name">Alex Johnson</span>
+                                            <span class="profile-email">alex.johnson@example.com</span>
                                         </div>
-                                    </td>
-                                    <td>London</td>
-                                    <td>Finance</td>
-                                    <td>Accountant</td>
-                                    <td>Tz00233</td>
-                                    <td class="table-status-active">Active</td>
-                                    <td>12/07/2024</td>
-                                    <td>...</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td>
-                                        <div class="profile-container">
-                                            <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
-                                            <div class="profile-info">
-                                                <span class="profile-name">John Doe</span>
-                                                <span class="profile-email">john.doe@example.com</span>
-                                            </div>
+                                    </div>
+                                </td>
+                                <td>London</td>
+                                <td>Finance</td>
+                                <td>Accountant</td>
+                                <td>Tz00233</td>
+                                <td class="table-status-active">Active</td>
+                                <td>12/07/2024</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="" id="">
+                                </td>
+                                <td>
+                                    <div class="profile-container">
+                                        <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
+                                        <div class="profile-info">
+                                            <span class="profile-name">John Doe</span>
+                                            <span class="profile-email">john.doe@example.com</span>
                                         </div>
-                                    </td>
-                                    <td>Hyderabad</td>
-                                    <td>Product Engineering</td>
-                                    <td>Full Stack Developer</td>
-                                    <td>Tz00231</td>
-                                    <td class="table-status-active">Active</td>
-                                    <td>12/03/2024</td>
-                                    <td>...</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td>
-                                        <div class="profile-container">
-                                            <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
-                                            <div class="profile-info">
-                                                <span class="profile-name">Jane Smith</span>
-                                                <span class="profile-email">jane.smith@example.com</span>
-                                            </div>
+                                    </div>
+                                </td>
+                                <td>Hyderabad</td>
+                                <td>Product Engineering</td>
+                                <td>Full Stack Developer</td>
+                                <td>Tz00231</td>
+                                <td class="table-status-active">Active</td>
+                                <td>12/03/2024</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="" id="">
+                                </td>
+                                <td>
+                                    <div class="profile-container">
+                                        <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
+                                        <div class="profile-info">
+                                            <span class="profile-name">Jane Smith</span>
+                                            <span class="profile-email">jane.smith@example.com</span>
                                         </div>
-                                    </td>
-                                    <td>New York</td>
-                                    <td>Marketing</td>
-                                    <td>Graphic Designer</td>
-                                    <td>Tz00232</td>
-                                    <td class="table-status-active">Active</td>
-                                    <td>12/05/2024</td>
-                                    <td>...</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td>
-                                        <div class="profile-container">
-                                            <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
-                                            <div class="profile-info">
-                                                <span class="profile-name">Alex Johnson</span>
-                                                <span class="profile-email">alex.johnson@example.com</span>
-                                            </div>
+                                    </div>
+                                </td>
+                                <td>New York</td>
+                                <td>Marketing</td>
+                                <td>Graphic Designer</td>
+                                <td>Tz00232</td>
+                                <td class="table-status-active">Active</td>
+                                <td>12/05/2024</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="" id="">
+                                </td>
+                                <td>
+                                    <div class="profile-container">
+                                        <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
+                                        <div class="profile-info">
+                                            <span class="profile-name">Alex Johnson</span>
+                                            <span class="profile-email">alex.johnson@example.com</span>
                                         </div>
-                                    </td>
-                                    <td>London</td>
-                                    <td>Finance</td>
-                                    <td>Accountant</td>
-                                    <td>Tz00233</td>
-                                    <td class="table-status-active">Active</td>
-                                    <td>12/07/2024</td>
-                                    <td>...</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td>
-                                        <div class="profile-container">
-                                            <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
-                                            <div class="profile-info">
-                                                <span class="profile-name">John Doe</span>
-                                                <span class="profile-email">john.doe@example.com</span>
-                                            </div>
+                                    </div>
+                                </td>
+                                <td>London</td>
+                                <td>Finance</td>
+                                <td>Accountant</td>
+                                <td>Tz00233</td>
+                                <td class="table-status-active">Active</td>
+                                <td>12/07/2024</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="" id="">
+                                </td>
+                                <td>
+                                    <div class="profile-container">
+                                        <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
+                                        <div class="profile-info">
+                                            <span class="profile-name">John Doe</span>
+                                            <span class="profile-email">john.doe@example.com</span>
                                         </div>
-                                    </td>
-                                    <td>Hyderabad</td>
-                                    <td>Product Engineering</td>
-                                    <td>Full Stack Developer</td>
-                                    <td>Tz00231</td>
-                                    <td class="table-status-active">Active</td>
-                                    <td>12/03/2024</td>
-                                    <td>...</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td>
-                                        <div class="profile-container">
-                                            <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
-                                            <div class="profile-info">
-                                                <span class="profile-name">Jane Smith</span>
-                                                <span class="profile-email">jane.smith@example.com</span>
-                                            </div>
+                                    </div>
+                                </td>
+                                <td>Hyderabad</td>
+                                <td>Product Engineering</td>
+                                <td>Full Stack Developer</td>
+                                <td>Tz00231</td>
+                                <td class="table-status-active">Active</td>
+                                <td>12/03/2024</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="" id="">
+                                </td>
+                                <td>
+                                    <div class="profile-container">
+                                        <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
+                                        <div class="profile-info">
+                                            <span class="profile-name">Jane Smith</span>
+                                            <span class="profile-email">jane.smith@example.com</span>
                                         </div>
-                                    </td>
-                                    <td>New York</td>
-                                    <td>Marketing</td>
-                                    <td>Graphic Designer</td>
-                                    <td>Tz00232</td>
-                                    <td class="table-status-active">Active</td>
-                                    <td>12/05/2024</td>
-                                    <td>...</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td>
-                                        <div class="profile-container">
-                                            <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
-                                            <div class="profile-info">
-                                                <span class="profile-name">Alex Johnson</span>
-                                                <span class="profile-email">alex.johnson@example.com</span>
-                                            </div>
+                                    </div>
+                                </td>
+                                <td>New York</td>
+                                <td>Marketing</td>
+                                <td>Graphic Designer</td>
+                                <td>Tz00232</td>
+                                <td class="table-status-active">Active</td>
+                                <td>12/05/2024</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="" id="">
+                                </td>
+                                <td>
+                                    <div class="profile-container">
+                                        <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
+                                        <div class="profile-info">
+                                            <span class="profile-name">Alex Johnson</span>
+                                            <span class="profile-email">alex.johnson@example.com</span>
                                         </div>
-                                    </td>
-                                    <td>London</td>
-                                    <td>Finance</td>
-                                    <td>Accountant</td>
-                                    <td>Tz00233</td>
-                                    <td class="table-status-active">Active</td>
-                                    <td>12/07/2024</td>
-                                    <td>...</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td>
-                                        <div class="profile-container">
-                                            <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
-                                            <div class="profile-info">
-                                                <span class="profile-name">John Doe</span>
-                                                <span class="profile-email">john.doe@example.com</span>
-                                            </div>
+                                    </div>
+                                </td>
+                                <td>London</td>
+                                <td>Finance</td>
+                                <td>Accountant</td>
+                                <td>Tz00233</td>
+                                <td class="table-status-active">Active</td>
+                                <td>12/07/2024</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="" id="">
+                                </td>
+                                <td>
+                                    <div class="profile-container">
+                                        <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
+                                        <div class="profile-info">
+                                            <span class="profile-name">John Doe</span>
+                                            <span class="profile-email">john.doe@example.com</span>
                                         </div>
-                                    </td>
-                                    <td>Hyderabad</td>
-                                    <td>Product Engineering</td>
-                                    <td>Full Stack Developer</td>
-                                    <td>Tz00231</td>
-                                    <td class="table-status-active">Active</td>
-                                    <td>12/03/2024</td>
-                                    <td>...</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td>
-                                        <div class="profile-container">
-                                            <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
-                                            <div class="profile-info">
-                                                <span class="profile-name">Jane Smith</span>
-                                                <span class="profile-email">jane.smith@example.com</span>
-                                            </div>
+                                    </div>
+                                </td>
+                                <td>Hyderabad</td>
+                                <td>Product Engineering</td>
+                                <td>Full Stack Developer</td>
+                                <td>Tz00231</td>
+                                <td class="table-status-active">Active</td>
+                                <td>12/03/2024</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="" id="">
+                                </td>
+                                <td>
+                                    <div class="profile-container">
+                                        <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
+                                        <div class="profile-info">
+                                            <span class="profile-name">Jane Smith</span>
+                                            <span class="profile-email">jane.smith@example.com</span>
                                         </div>
-                                    </td>
-                                    <td>New York</td>
-                                    <td>Marketing</td>
-                                    <td>Graphic Designer</td>
-                                    <td>Tz00232</td>
-                                    <td class="table-status-active">Active</td>
-                                    <td>12/05/2024</td>
-                                    <td>...</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td>
-                                        <div class="profile-container">
-                                            <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
-                                            <div class="profile-info">
-                                                <span class="profile-name">Alex Johnson</span>
-                                                <span class="profile-email">alex.johnson@example.com</span>
-                                            </div>
+                                    </div>
+                                </td>
+                                <td>New York</td>
+                                <td>Marketing</td>
+                                <td>Graphic Designer</td>
+                                <td>Tz00232</td>
+                                <td class="table-status-active">Active</td>
+                                <td>12/05/2024</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="" id="">
+                                </td>
+                                <td>
+                                    <div class="profile-container">
+                                        <img src="assets/profileimg.png" alt="Profile Image" class="profile-image">
+                                        <div class="profile-info">
+                                            <span class="profile-name">Alex Johnson</span>
+                                            <span class="profile-email">alex.johnson@example.com</span>
                                         </div>
-                                    </td>
-                                    <td>London</td>
-                                    <td>Finance</td>
-                                    <td>Accountant</td>
-                                    <td>Tz00233</td>
-                                    <td class="table-status-active">Active</td>
-                                    <td>12/07/2024</td>
-                                    <td>...</td>
-                                </tr>
-                            </tbody>
+                                    </div>
+                                </td>
+                                <td>London</td>
+                                <td>Finance</td>
+                                <td>Accountant</td>
+                                <td>Tz00233</td>
+                                <td class="table-status-active">Active</td>
+                                <td>12/07/2024</td>
+                                <td>...</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -476,16 +512,3 @@
     </div>
 </body>
 </html>
-
-
-
-<!-- 
-
-
-    Hello sir,
-
-
-
-
-
- -->
