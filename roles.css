@@ -1,0 +1,28 @@
+.role-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .role-card-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .role-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 10px;
+    width: 200px;
+  }
+  
+  .role-card-column-left {
+    text-align: left;
+  }
+  
+  .role-card-column-right {
+    text-align: right;
+  }
+  
