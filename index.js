@@ -8,7 +8,7 @@ function toggleSidebar() {
 // including sidebar html code
 
 const sidebarcontainer = document.querySelector('.sidebar-container');
-fetch('/sidebar.html')
+fetch('https://raw.githubusercontent.com/Mr-Jerry-Haxor/TEZO_Employees_DashBoard/main/sidebar.html')
 .then(res=>res.text())
 .then(data=>{
     sidebarcontainer.innerHTML = data;
@@ -18,7 +18,7 @@ fetch('/sidebar.html')
 // including searchbar html code
 
 const searchbar = document.querySelector('.searchbar-container');
-fetch('/searchbar.html')
+fetch('https://raw.githubusercontent.com/Mr-Jerry-Haxor/TEZO_Employees_DashBoard/main/searchbar.html')
 .then(res=>res.text())
 .then(data=>{
     searchbar.innerHTML = data;
@@ -32,7 +32,7 @@ fetch('/searchbar.html')
 
 function EmployeeMenu() {
     const mainContainer = document.querySelector('.main-content');
-    fetch('/employee.html')
+    fetch('https://raw.githubusercontent.com/Mr-Jerry-Haxor/TEZO_Employees_DashBoard/main/employee.html')
     .then(res=>res.text())
     .then(data=>{
         mainContainer.innerHTML = data;
@@ -46,7 +46,7 @@ function EmployeeMenu() {
 
 function RolesMenu() {
     const mainContainer = document.querySelector('.main-content');
-    fetch('/roles.html')
+    fetch('https://raw.githubusercontent.com/Mr-Jerry-Haxor/TEZO_Employees_DashBoard/main/roles.html')
     .then(res=>res.text())
     .then(data=>{
         mainContainer.innerHTML = data;
@@ -61,7 +61,7 @@ function RolesMenu() {
 // default  employee page load
 function defaultpage() {
     const mainContainer = document.querySelector('.main-content');
-    fetch('/employee.html')
+    fetch('https://raw.githubusercontent.com/Mr-Jerry-Haxor/TEZO_Employees_DashBoard/main/employee.html')
     .then(res=>res.text())
     .then(data=>{
         mainContainer.innerHTML = data;
