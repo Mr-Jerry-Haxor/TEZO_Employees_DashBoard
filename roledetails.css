@@ -1,0 +1,10 @@
+.role-description p {
+  color: gray;
+  font-size: small;
+}
+
+.role-description h4 {
+  color: black;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
