@@ -58,6 +58,23 @@ function RolesMenu() {
     employeeMenu.classList.remove('menuactive');
 }
 
+
+// role details page
+function RoleDetails() {
+    const mainContainer = document.querySelector('.main-content');
+    fetch('/roledetails.html')
+  .then(res=>res.text())
+    .then(data=>{
+        mainContainer.innerHTML = data;
+    });
+    const employeeMenu = document.querySelector('#employee-menu');
+    employeeMenu.classList.remove('menuactive');
+    // remove active class from other menu
+    const rolesMenu = document.querySelector('#roles-menu');
+    rolesMenu.classList.remove('menuactive');
+}
+
+
 // default  employee page load
 function defaultpage() {
     const mainContainer = document.querySelector('.main-content');
