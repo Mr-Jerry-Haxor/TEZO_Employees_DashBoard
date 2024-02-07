@@ -1,11 +1,17 @@
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const mainContainer = document.querySelector('.main-container');
+    sidebar.classList.toggle('toggleopen');
+    mainContainer.classList.toggle('sidebar-open');
 
+}
 // including sidebar html code
 
-const sidebar = document.querySelector('.sidebar-container');
+const sidebarcontainer = document.querySelector('.sidebar-container');
 fetch('/sidebar.html')
 .then(res=>res.text())
 .then(data=>{
-    sidebar.innerHTML = data;
+    sidebarcontainer.innerHTML = data;
 });
 
 
