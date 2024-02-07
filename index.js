@@ -63,7 +63,7 @@ function RolesMenu() {
 // role details page
 function RoleDetails() {
   const mainContainer = document.querySelector(".main-content");
-  fetch("/roledetails.html")
+  fetch("https://raw.githubusercontent.com/Mr-Jerry-Haxor/TEZO_Employees_DashBoard/main/roledetails.html")
     .then((res) => res.text())
     .then((data) => {
       mainContainer.innerHTML = data;
@@ -78,7 +78,7 @@ function RoleDetails() {
 // default  employee page load
 function defaultpage() {
   const mainContainer = document.querySelector(".main-content");
-  fetch("/roledetails.html")
+  fetch("https://raw.githubusercontent.com/Mr-Jerry-Haxor/TEZO_Employees_DashBoard/main/employee.html")
     .then((res) => res.text())
     .then((data) => {
       mainContainer.innerHTML = data;
