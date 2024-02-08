@@ -84,5 +84,11 @@ function defaultpage() {
       mainContainer.innerHTML = data;
     });
   const employeeMenu = document.querySelector("#employee-menu");
-  employeeMenu.classList.toggle("menuactive");
+  // make it async
+  setTimeout(() => {
+    employeeMenu.classList.add("menuactive");
+    // remove active class from other menu
+    const rolesMenu = document.querySelector("#roles-menu");
+    rolesMenu.classList.remove("menuactive");
+  }, 1000);
 }
