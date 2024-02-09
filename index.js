@@ -105,7 +105,7 @@ defaultpage();
 
 function addemployeepage() {
   const mainContainer = document.querySelector(".main-content");
-  fetch("/AddEmployee.html")
+  fetch("https://raw.githubusercontent.com/Mr-Jerry-Haxor/TEZO_Employees_DashBoard/main/AddEmployee.html")
     .then((res) => res.text())
     .then((data) => {
       mainContainer.innerHTML = data;
