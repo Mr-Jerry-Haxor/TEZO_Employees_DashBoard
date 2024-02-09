@@ -1,3 +1,9 @@
+.add-employee-form-div h5{
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+
+}
+
 .profile-picture{
     display: inline-flex;
     justify-content: space-between;
@@ -16,7 +22,8 @@
     background-color: red;
     border-radius: 5px;
     color: white;
-    padding: 0.5rem;
+    padding: 0.3rem;
+    font-size: small;
     text-align: center;
     width: 100%;
     height: 100%;
@@ -42,3 +49,60 @@
 }
 
 
+.form-group{
+    display: flex; 
+    flex-direction: column; 
+    gap: 5px;
+}
+
+.form-group label{
+    font-size: small;
+    text-align: left;
+    font-weight: 500;
+}
+
+.form-group input{
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #b9b9b9a1;
+    padding-left: 0.5rem;
+}
+
+.form-group select{
+    width: 200px;
+    border: 1px solid #b9b9b9a1;
+    padding-left: 0.5rem;
+}
+
+
+.form-group-2{
+    display: flex; 
+    gap: 5rem;
+}
+
+.form-group-3{
+    display: flex; 
+    gap: 5rem;
+}
+
+.form-group-empinfo input{
+    width: 300px !important;
+}
+
+.form-group-empinfo select{
+    width: 300px !important;
+}
+.form-group-empinfo{
+    display: flex; 
+    gap: 5rem;
+}
+
+
+.form-btns{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 1rem 5rem 2rem 2rem;
+}

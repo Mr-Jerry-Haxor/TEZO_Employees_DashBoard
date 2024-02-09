@@ -66,9 +66,7 @@ function loadEmployeeData() {
                 let cellMore = document.createElement('td');
                 cellMore.textContent = "...";
                 row.appendChild(cellMore);
-                // console.log(row);
-                // tableBody.appendChild(row);
-                // document.getElementById('employees-table').insertRow(row);
+
                 var t = document.getElementById("employees-table");
                 var r = document.createElement("tr");
                 r.innerHTML = row.innerHTML;
@@ -78,10 +76,52 @@ function loadEmployeeData() {
         .catch(error => console.error('Error:', error));
 }
 
-// window.onload = function() {
-//     // setTimeout(loadEmployeeData, 5000);
+
+
+function AddEmployeeToData() {
+    //event.preventDefault(); // Prevent the form from submitting normally
+
+    // Capture form data
+    var form = document.getElementById('add-employee-form');
+    var formData = new FormData(form);
+    console.log(formData);
+    var employee = {};
     
-// };
+    employee["empid"] = formData.get('empid');
+    employee["fisrtname"] = formData.get('firstname');
+    employee["lastname"] = formData.get('lastname');
+    employee["DOB"] = formData.get('dob');
+    employee["emailid"] = formData.get('email');
+    employee["mobile"] = formData.get('mobile');
+    employee["location"] = formData.get('location');
+    employee["Department"] = formData.get('department');
+    employee["jobtitle"] = formData.get('jobtitle');
+    employee["profilepath"] = formData.get('profile-picture');
+    employee["joining"] = formData.get('joiningdate');
+    employee["AssignManager"] = formData.get('assignmanager');
+    employee["AssignProject"] = formData.get('assignproject');
+
+    
+    employee["status"] = "Active";
+    console.log(employee);
+    // fetch('data.json')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         // Append the new employee to the Employees array
+    //         // data.Employees.push(employee);
+
+    //         // // after pushing the new employee to the Employees array, update the data.json file
+    //         // fetch('data.json', {
+    //         //     method: 'PUT',
+    //         //     headers: {
+    //         //         'Content-Type': 'application/json'
+    //         //     },
+    //         //     body: JSON.stringify(data)
+    //         // })
+    //         // console.log(data);
+    //     })
+        // .catch(error => console.error('Error:', error));
+}
 
 
 

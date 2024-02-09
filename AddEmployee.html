@@ -1,75 +1,97 @@
 <div class="add-employee-container">
     <h4>AddEmployee</h4>
-    <div class="add-employee-form">
-        <form action="">
+    <div class="add-employee-form-div">
+        <form onsubmit="AddEmployeeToData()" id="add-employee-form">
             <!-- upload profile picture and show preview -->
             <div class="profile-picture">
                 <div class="profile-picture-preview">
-                    <img src="assets/profileimg.png" alt="" >
+                    <img src="assets/profileimg.png" alt=""  id="uploaded-img-preview">
                 </div>
                 <div class="profile-img-upload-btn">
-                    <input type="file" id="profile-picture" required hidden />
+                    <input type="file" accept="image/*" id="profile-picture" required hidden onchange="document.getElementById('uploaded-img-preview').src = window.URL.createObjectURL(this.files[0])" />
                     <label for="profile-picture">Upload Profile Picture</label>
                 </div>
             <span class="profile-picture-error"></span>
             </div>
             <h5>Personal information</h5>
             <div class="form-group">
-                <label for="name">Emp No</label>
+                <label for="empid">Emp No</label>
                 <input type="text" id="empid" placeholder="Text" required />
                 <span class="required-error"></span>
             </div>
             <div class="form-group-3">
-                <label for="name">First Name</label>
-                <input type="text" id="firstname" placeholder="Text" required />
-                <span class="required-error"></span>
-                <label for="name">Last Name</label>
-                <input type="text" id="lastname" placeholder="Text" required />
-                <span class="required-error"></span>
-                <label for="name">Date of Birth</label>
-                <input type="date" id="dob" placeholder="Text" required />
-                <span class="required-error"></span>
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" id="firstname" placeholder="Text" required />
+                    <span class="required-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" id="lastname" placeholder="Text" required />
+                    <span class="required-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" placeholder="Text" required />
+                    <span class="required-error"></span>
+                </div>
             </div>
             <div class="form-group-2">
-                <label for="name">Email Id</label>
-                <input type="email" id="email" placeholder="Text" required />
-                <span class="required-error"></span>
-                <label for="name">Mobile Number</label>
-                <input type="tel" id="phone" placeholder="Text" required />
-                <span class="required-error"></span>
+                <div class="form-group">
+                    <label for="email">Email Id</label>
+                    <input type="email" id="email" placeholder="Text" required />
+                    <span class="required-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel" id="mobile" placeholder="Text" required />
+                    <span class="required-error"></span>
+                </div>
             </div>
             <h5>Employee Information</h5>
             <div class="form-group-empinfo">
-                <label for="name">Joining Date</label>
-                <input type="date" id="joiningdate" placeholder="Text" required />
-                <span class="required-error"></span>
-                <label for="name">Location</label>
-                <input type="text" id="location" placeholder="Text" required />
-                <span class="required-error"></span>
+                <div class="form-group">
+                    <label for="joiningdate">Joining Date</label>
+                    <input type="date" id="joiningdate" placeholder="Text" required />
+                    <span class="required-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" placeholder="Text" required />
+                    <span class="required-error"></span>
+                </div>
             </div>
             <div class="form-group-empinfo">
-                <label for="name">Job Title</label>
-                <input type="text" id="jobtitle" placeholder="Text" required />
-                <span class="required-error"></span>
-                <label for="name">Department</label>
-                <select id="department" required>
-                    <option value="">Select</option>
-                    <option value="HR">HR</option>
-                    <option value="Marketing">Marketing</option>
-                    <option value="Product Engineering">Product Engineering</option>
-                    <option value="Finance">Finance</option>
-                    <option value="UIUX">UI/UX</option>
-                    <option value="Sales">Sales</option>
-                </select>
-                <span class="required-error"></span>
+                <div class="form-group">
+                    <label for="jobtitle">Job Title</label>
+                    <input type="text" id="jobtitle" placeholder="Text" required />
+                    <span class="required-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <select id="department" required>
+                        <option value="">Select</option>
+                        <option value="HR">HR</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Product Engineering">Product Engineering</option>
+                        <option value="Finance">Finance</option>
+                        <option value="UIUX">UI/UX</option>
+                        <option value="Sales">Sales</option>
+                    </select>
+                    <span class="required-error"></span>
+                </div>
             </div>
             <div class="form-group-empinfo">
-                <label for="name">Assign Manager</label>
-                <input type="text" id="manager" placeholder="Text" required />
-                <span class="required-error"></span>
-                <label for="name">Assign Project</label>
-                <input type="text" id="project" placeholder="Text" required />
-                <span class="required-error"></span>
+                <div class="form-group">
+                    <label for="assignmanager">Assign Manager</label>
+                    <input type="text" id="assignmanager" placeholder="Text" required />
+                    <span class="required-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="name">Assign Project</label>
+                    <input type="text" id="assignproject" placeholder="Text" required />
+                    <span class="required-error"></span>
+                </div>
             </div>
             <div class="form-btns">
                 <button class="lightred-red-button">Cancel</button>
