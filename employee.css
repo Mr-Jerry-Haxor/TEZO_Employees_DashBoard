@@ -102,7 +102,7 @@ tbody tr td {
   text-align: left;
 }
 
-tr.border-bottom td {
+tr td {
   border-bottom: 1pt solid #b9b9b9a1;
 }
 

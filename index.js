@@ -28,6 +28,8 @@ fetch(
 
 // onclick of emeployee in the sidebar, load the employee.html filea and display it in the main content area
 
+
+
 function EmployeeMenu() {
   const mainContainer = document.querySelector(".main-content");
   fetch(
@@ -37,12 +39,15 @@ function EmployeeMenu() {
     .then((data) => {
       mainContainer.innerHTML = data;
     });
+  loadEmployeeData();
   const employeeMenu = document.querySelector("#employee-menu");
   employeeMenu.classList.add("menuactive");
   // remove active class from other menu
   const rolesMenu = document.querySelector("#roles-menu");
   rolesMenu.classList.remove("menuactive");
 }
+
+
 
 function RolesMenu() {
   const mainContainer = document.querySelector(".main-content");
@@ -60,6 +65,8 @@ function RolesMenu() {
   employeeMenu.classList.remove("menuactive");
 }
 
+
+
 // role details page
 function RoleDetails() {
   const mainContainer = document.querySelector(".main-content");
@@ -75,6 +82,9 @@ function RoleDetails() {
   rolesMenu.classList.remove("menuactive");
 }
 
+
+
+
 // default  employee page load
 function defaultpage() {
   const mainContainer = document.querySelector(".main-content");
@@ -83,12 +93,25 @@ function defaultpage() {
     .then((data) => {
       mainContainer.innerHTML = data;
     });
-  const employeeMenu = document.querySelector("#employee-menu");
-  // make it async
-  setTimeout(() => {
+    loadEmployeeData();
+    const employeeMenu = document.querySelector("#employee-menu");
     employeeMenu.classList.add("menuactive");
-    // remove active class from other menu
+}
+
+defaultpage();
+
+
+
+
+function addemployeepage() {
+  const mainContainer = document.querySelector(".main-content");
+  fetch("/AddEmployee.html")
+    .then((res) => res.text())
+    .then((data) => {
+      mainContainer.innerHTML = data;
+    });
+    const employeeMenu = document.querySelector("#employee-menu");
+    employeeMenu.classList.add("menuactive");
     const rolesMenu = document.querySelector("#roles-menu");
     rolesMenu.classList.remove("menuactive");
-  }, 1000);
 }

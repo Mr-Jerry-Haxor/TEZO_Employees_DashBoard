@@ -1,0 +1,44 @@
+.profile-picture{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-picture-preview{
+    gap: 10px;
+}
+
+.profile-img-upload-btn{
+    gap: 10px;
+}
+.profile-img-upload-btn label{
+    display: block;
+    background-color: red;
+    border-radius: 5px;
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.profile-picture-preview img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+.profile-picture-error{
+    color: red;
+    font-size: small;
+}
+
+.profile-info{
+    display: flex;
+    flex-direction: column;
+}
+
+
