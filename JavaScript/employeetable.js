@@ -55,3 +55,24 @@ function filterTableByFirstLetters(letters) {
         });
     }
 }
+
+
+document.getElementById('table-header-checkbox').addEventListener('change', function() {
+    // Get all employee checkboxes
+    var checkboxes = document.querySelectorAll('#employees-table tbody tr');
+
+    checkboxes.forEach(row => {
+        var firstCell = row.querySelector('td:first-child');
+        var checkbox = firstCell.querySelector('input[type="checkbox"]');
+        checkbox.checked = this.checked;
+    });
+});
+
+
+
+
+// Get the select elements
+var statusSelect = document.getElementById('Status');
+var locationSelect = document.getElementById('location');
+var departmentSelect = document.getElementById('Department');
+
