@@ -23,7 +23,7 @@
   background-color: transparent !important;
 }
 
-.table-filters button:active {
+.filteractive {
   background-color: #ff3f3f;
   color: white;
 }
