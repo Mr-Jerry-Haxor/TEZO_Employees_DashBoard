@@ -92,10 +92,10 @@ function defaultpage() {
     .then((res) => res.text())
     .then((data) => {
       mainContainer.innerHTML = data;
+      loadEmployeeData();
+      const employeeMenu = document.querySelector("#employee-menu");
+      employeeMenu.classList.add("menuactive");
     });
-    loadEmployeeData();
-    const employeeMenu = document.querySelector("#employee-menu");
-    employeeMenu.classList.add("menuactive");
 }
 
 defaultpage();
