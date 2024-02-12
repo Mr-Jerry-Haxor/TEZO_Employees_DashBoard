@@ -52,18 +52,18 @@
     <div class="filter-content">
       <h4>Filters</h4>
       <i class="bx bx-filter"></i>
-      <select name="Status" id="Status">
+      <select name="Status" id="filter-Status">
         <option value="Status">Status</option>
         <option value="Active">Active</option>
         <option value="Inactive">Inactive</option>
       </select>
-      <select name="location" id="location">
+      <select name="location" id="filter-Location">
         <option value="location">Location</option>
         <option value="Hyderabad">Hyderabad</option>
         <option value="New York">New York</option>
         <option value="London">London</option>
       </select>
-      <select name="Department" id="Department">
+      <select name="Department" id="filter-Department">
         <option value="Department">Department</option>
         <option value="Product Engineering">Product Engineering</option>
         <option value="Marketing">Marketing</option>
@@ -72,7 +72,7 @@
     </div>
     <div class="filters-buttons">
       <button class="reset-button white-red-button">Reset</button>
-      <button class="apply-button red-white-button">Apply</button>
+      <button class="apply-button red-white-button" onclick="filterEmployeesTable()">Apply</button>
     </div>
   </div>
   <div class="employees-table">
@@ -90,7 +90,7 @@
         <thead>
           <tr>
             <th class="checkbox">
-              <input type="checkbox" name="" id="" />
+              <input type="checkbox" name="" id="table-header-checkbox" />
             </th>
             <th>
               user <span><i class="bx bx-expand-alt"></i></span>
