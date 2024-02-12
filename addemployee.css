@@ -66,12 +66,16 @@
     border-radius: 5px;
     border: 1px solid #b9b9b9a1;
     padding-left: 0.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
 }
 
 .form-group select{
     width: 200px;
     border: 1px solid #b9b9b9a1;
     padding-left: 0.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
 }
 
 

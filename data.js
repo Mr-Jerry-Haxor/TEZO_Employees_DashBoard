@@ -2,7 +2,14 @@ function loadEmployeeData() {
     fetch("data.json")
         .then(response => response.json())
         .then(data => {
-            let employees = data.Employees;
+            
+            if (localStorage.getItem("data") === null) {
+                localStorage.setItem("data", JSON.stringify(data));
+            }
+            
+            localdata = JSON.parse(localStorage.getItem("data"));
+            console.log(localdata)
+            let employees = localdata.Employees;
 
             employees.forEach(employee => {
                 let row = document.createElement('tr');
@@ -77,51 +84,34 @@ function loadEmployeeData() {
 }
 
 
-
-function AddEmployeeToData() {
-    //event.preventDefault(); // Prevent the form from submitting normally
-
-    // Capture form data
-    var form = document.getElementById('add-employee-form');
-    var formData = new FormData(form);
-    console.log(formData);
-    var employee = {};
+function addEmployee() {
+  
+  // Get the form data
+    employee = {};
     
-    employee["empid"] = formData.get('empid');
-    employee["fisrtname"] = formData.get('firstname');
-    employee["lastname"] = formData.get('lastname');
-    employee["DOB"] = formData.get('dob');
-    employee["emailid"] = formData.get('email');
-    employee["mobile"] = formData.get('mobile');
-    employee["location"] = formData.get('location');
-    employee["Department"] = formData.get('department');
-    employee["jobtitle"] = formData.get('jobtitle');
-    employee["profilepath"] = formData.get('profile-picture');
-    employee["joining"] = formData.get('joiningdate');
-    employee["AssignManager"] = formData.get('assignmanager');
-    employee["AssignProject"] = formData.get('assignproject');
-
+    employee["empid"] = document.getElementById('empid').value;
+    employee["fisrtname"] = document.getElementById('firstname').value;
+    employee["lastname"] = document.getElementById('lastname').value;
+    employee["DOB"] = document.getElementById('dob').value;
+    employee["emailid"] = document.getElementById('email').value;
+    employee["mobile"] = document.getElementById('mobile').value;
+    employee["location"] = document.getElementById('location').value;
+    employee["Department"] = document.getElementById('department').value;
+    employee["jobtitle"] = document.getElementById('jobtitle').value;
+    employee["profilepath"] = document.getElementById('profile-picture').value;
+    employee["joining"] = document.getElementById('joiningdate').value;
+    employee["AssignManager"] = document.getElementById('assignmanager').value;
+    employee["AssignProject"] = document.getElementById('assignproject').value;
     
     employee["status"] = "Active";
-    console.log(employee);
-    // fetch('data.json')
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         // Append the new employee to the Employees array
-    //         // data.Employees.push(employee);
+    // get local storage data and add new record to it
+    let localdata = JSON.parse(localStorage.getItem("data"));
+    localdata.Employees.push(employee);
+    localStorage.setItem("data", JSON.stringify(localdata));
 
-    //         // // after pushing the new employee to the Employees array, update the data.json file
-    //         // fetch('data.json', {
-    //         //     method: 'PUT',
-    //         //     headers: {
-    //         //         'Content-Type': 'application/json'
-    //         //     },
-    //         //     body: JSON.stringify(data)
-    //         // })
-    //         // console.log(data);
-    //     })
-        // .catch(error => console.error('Error:', error));
-}
+    window.location.reload(true);
+    console.log("reload completed");
+};
 
 
 
