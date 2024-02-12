@@ -8,7 +8,6 @@ function loadEmployeeData() {
             }
             
             localdata = JSON.parse(localStorage.getItem("data"));
-            console.log(localdata)
             let employees = localdata.Employees;
 
             employees.forEach(employee => {

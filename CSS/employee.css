@@ -15,7 +15,6 @@
 
 .table-filters li {
   margin: 0 2.5px;
-  background-color: #cfcfcf;
   padding: 5px;
   border-radius: 5px;
 }
@@ -24,14 +23,19 @@
   background-color: transparent !important;
 }
 
-.table-filters li:active {
+.table-filters button:active {
   background-color: #ff3f3f;
   color: white;
 }
 
-.table-filters a {
+.table-filters button {
   text-decoration: none;
-  color: #888;
+  border: none;
+  background-color: #e0e0e0;
+  border-radius: 0;
+  color: #000000;
+  width: 1.8rem;
+  font-size: medium;
   padding: 5px;
   border-radius: 5px;
 }
