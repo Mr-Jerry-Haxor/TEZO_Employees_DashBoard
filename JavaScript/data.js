@@ -85,8 +85,7 @@ function loadEmployeeData() {
 
 
 function addEmployee() {
-  
-  // Get the form data
+    
     employee = {};
     
     employee["empid"] = document.getElementById('empid').value;
