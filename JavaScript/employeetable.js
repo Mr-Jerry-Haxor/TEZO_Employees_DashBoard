@@ -181,8 +181,10 @@ function filterEmployeesTable() {
                 row.style.display = '';
             }
         });
-        filterTableByFirstLettersAndFilters(selectedLetters)
-
+        // run below function only when selectedLetters is not empty
+        if (selectedLetters.length!== 0) {
+            filterTableByFirstLettersAndFilters(selectedLetters)
+        }
     }
 }
 
