@@ -31,6 +31,12 @@ function filterTableByFirstLettersReset(){
     buttons.forEach(button => {
         button.classList.remove('filteractive');
     });
+    var statusSelect = document.getElementById('filter-Status');
+    var locationSelect = document.getElementById('filter-Location');
+    var departmentSelect = document.getElementById('filter-Department');
+    statusSelect.selectedIndex = 0;
+    locationSelect.selectedIndex = 0;
+    departmentSelect.selectedIndex = 0;
 }
 
 function filterTableByFirstLetters(letters) {
