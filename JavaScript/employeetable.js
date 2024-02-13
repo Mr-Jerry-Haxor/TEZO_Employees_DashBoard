@@ -1,8 +1,6 @@
 // this file contains the employee table filters and sorting functions
 var selectedLetters = [];
 function Filters() {
-    
-    
     document.querySelectorAll('.table-filters-list button').forEach(button => {
         button.addEventListener('click', function(event) {
             // event.preventDefault();
@@ -20,14 +18,20 @@ function Filters() {
                 selectedLetters.push(letter);
                 this.classList.add('filteractive');
             }
-            console.log(selectedLetters)
             filterTableByFirstLetters(selectedLetters);
         });
     });
-    
 }
 
-
+function filterTableByFirstLettersReset(){
+    selectedLetters = [];
+    filterTableByFirstLetters(selectedLetters);
+    // remove filteractive from all the letters
+    var buttons = document.querySelectorAll('.table-filters-list button');
+    buttons.forEach(button => {
+        button.classList.remove('filteractive');
+    });
+}
 
 function filterTableByFirstLetters(letters) {
     // Get all the rows in the table
@@ -134,6 +138,7 @@ function filtersReset() {
     locationSelect.selectedIndex = 0;
     departmentSelect.selectedIndex = 0;
     filterEmployeesTable();
+    filterTableByFirstLetters(selectedLetters);
 }
 
 
