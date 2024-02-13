@@ -53,18 +53,18 @@
       <h4>Filters</h4>
       <i class="bx bx-filter"></i>
       <select name="Status" id="filter-Status">
-        <option value="" disabled>Status</option>
+        <option value="" disabled selected >Status</option>
         <option value="Active">Active</option>
         <option value="Inactive">Inactive</option>
       </select>
       <select name="location" id="filter-Location">
-        <option value="" disabled>Location</option>
+        <option value="" disabled selected>Location</option>
         <option value="Hyderabad">Hyderabad</option>
         <option value="New York">New York</option>
         <option value="London">London</option>
       </select>
       <select name="Department" id="filter-Department">
-        <option value="" disabled>Department</option>
+        <option value="" disabled selected>Department</option>
         <option value="HR">HR</option>
         <option value="Marketing">Marketing</option>
         <option value="Product Engineering">Product Engineering</option>
@@ -74,7 +74,7 @@
       </select>
     </div>
     <div class="filters-buttons">
-      <button class="reset-button white-red-button">Reset</button>
+      <button class="reset-button white-red-button" onclick="filtersReset()">Reset</button>
       <button class="apply-button red-white-button" onclick="filterEmployeesTable()">Apply</button>
     </div>
   </div>
