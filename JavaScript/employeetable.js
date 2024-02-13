@@ -59,17 +59,28 @@ function filterTableByFirstLetters(letters) {
 
 document.getElementById('table-header-checkbox').addEventListener('change', function() {
     // Get all employee checkboxes
-    var checkboxes = document.querySelectorAll('#employees-table tbody tr');
+    var checkboxes = document.querySelectorAll('#employees-table tbody tr input[type="checkbox"]');
 
-    checkboxes.forEach(row => {
-        var firstCell = row.querySelector('td:first-child');
-        var checkbox = firstCell.querySelector('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
         checkbox.checked = this.checked;
     });
 });
 
+// Get all employee checkboxes
+var checkboxes = document.querySelectorAll('#employees-table tbody tr input[type="checkbox"]');
 
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        // Get the parent checkbox
+        var parentCheckbox = document.getElementById('table-header-checkbox');
 
+        // Check if all child checkboxes are checked
+        var allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+
+        // Set the checked state of the parent checkbox
+        parentCheckbox.checked = allChecked;
+    });
+});
 
 // Get the select elements
 var statusSelect = document.getElementById('Status');
