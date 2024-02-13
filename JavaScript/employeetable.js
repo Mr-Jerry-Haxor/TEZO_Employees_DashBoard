@@ -40,9 +40,9 @@ function filterTableByFirstLetters(letters) {
 
         // Loop through each row
         rows.forEach(row => {
-            if (row.style.display === 'none') {
-                return;
-            }
+            // if (row.style.display === 'none') {
+            //     return;
+            // }
             // Get the first cell in the row
             var firstCell = row.querySelector('td:nth-child(2) .profile-name');
 
@@ -116,16 +116,22 @@ function filterEmployeesTable() {
 
         // Loop through each row
         rows.forEach(row => {
-            if (row.style.display === 'none') {
-                return;
-            }
+            // if (row.style.display === 'none') {
+            //     return;
+            // }
             // Get the cells in the row
             var statusCell = row.querySelector('td:nth-child(7)');
             var locationCell = row.querySelector('td:nth-child(3)');
             var departmentCell = row.querySelector('td:nth-child(4)');
 
             // If the statusCell or locationCell or departmentCell is not equal to the selected value, hide the row, otherwise show it
-            if ((statusSelect !== "" && statusCell.textContent !== statusSelect) || (locationSelect !== "" && locationCell.textContent !== locationSelect) || (departmentSelect !== "" && departmentCell.textContent !== departmentSelect)) {
+            if ((statusSelect !== "" && statusCell.textContent !== statusSelect)) {
+                row.style.display = 'none';
+            } 
+            else if ((locationSelect !== "" && locationCell.textContent !== locationSelect)) {
+                row.style.display = 'none';
+            } 
+            else if ((departmentSelect !== "" && departmentCell.textContent !== departmentSelect)) {
                 row.style.display = 'none';
             } else {
                 row.style.display = '';
