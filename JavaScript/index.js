@@ -8,7 +8,7 @@ function toggleSidebar() {
 
 const sidebarcontainer = document.querySelector(".sidebar-container");
 fetch(
-  "https://raw.githubusercontent.com/Mr-Jerry-Haxor/TEZO_Employees_DashBoard/main/sidebar.html"
+  "sidebar.html"
 )
   .then((res) => res.text())
   .then((data) => {
