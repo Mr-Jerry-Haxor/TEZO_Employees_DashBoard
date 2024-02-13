@@ -27,9 +27,6 @@ document.querySelectorAll('.table-filters-list button').forEach(button => {
 
 
 
-
-
-
 function filterTableByFirstLetters(letters) {
     // Get all the rows in the table
     var rows = document.querySelectorAll('#employees-table tbody tr');
