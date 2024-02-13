@@ -40,6 +40,9 @@ function filterTableByFirstLetters(letters) {
 
         // Loop through each row
         rows.forEach(row => {
+            if (row.style.display === 'none') {
+                return;
+            }
             // Get the first cell in the row
             var firstCell = row.querySelector('td:nth-child(2) .profile-name');
 
@@ -79,8 +82,54 @@ checkboxes.forEach(checkbox => {
     });
 });
 
-// Get the select elements
-var statusSelect = document.getElementById('Status');
-var locationSelect = document.getElementById('location');
-var departmentSelect = document.getElementById('Department');
 
+
+
+function filtersReset() {
+    // Get the select elements
+    var statusSelect = document.getElementById('filter-Status');
+    var locationSelect = document.getElementById('filter-Location');
+    var departmentSelect = document.getElementById('filter-Department');
+    statusSelect.selectedIndex = 0;
+    locationSelect.selectedIndex = 0;
+    departmentSelect.selectedIndex = 0;
+    filterEmployeesTable();
+}
+
+
+function filterEmployeesTable() {
+    // Get the select elements
+    var statusSelect = document.getElementById('filter-Status').value;
+    var locationSelect = document.getElementById('filter-Location').value;
+    var departmentSelect = document.getElementById('filter-Department').value;
+    
+
+    // if statusSelect or locationSelect or departmentSelect is empty , then displya all employees table rows
+    if (statusSelect === "" && locationSelect === "" && departmentSelect === "") {
+        var rows = document.querySelectorAll('#employees-table tbody tr');
+        rows.forEach(row => {
+            row.style.display = '';
+        });
+    } else {
+        // Get all the rows in the table
+        var rows = document.querySelectorAll('#employees-table tbody tr');
+
+        // Loop through each row
+        rows.forEach(row => {
+            if (row.style.display === 'none') {
+                return;
+            }
+            // Get the cells in the row
+            var statusCell = row.querySelector('td:nth-child(7)');
+            var locationCell = row.querySelector('td:nth-child(3)');
+            var departmentCell = row.querySelector('td:nth-child(4)');
+
+            // If the statusCell or locationCell or departmentCell is not equal to the selected value, hide the row, otherwise show it
+            if ((statusSelect !== "" && statusCell.textContent !== statusSelect) || (locationSelect !== "" && locationCell.textContent !== locationSelect) || (departmentSelect !== "" && departmentCell.textContent !== departmentSelect)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = '';
+            }
+        });
+    }
+}
