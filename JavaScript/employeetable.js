@@ -1,7 +1,7 @@
 // this file contains the employee table filters and sorting functions
+var selectedLetters = [];
 function Filters() {
     
-    var selectedLetters = [];
     
     document.querySelectorAll('.table-filters-list button').forEach(button => {
         button.addEventListener('click', function(event) {
@@ -55,6 +55,40 @@ function filterTableByFirstLetters(letters) {
                 row.style.display = 'none';
             }
         });
+        var statusSelect = document.getElementById('filter-Status');
+        var locationSelect = document.getElementById('filter-Location');
+        var departmentSelect = document.getElementById('filter-Department');
+        statusSelect.selectedIndex = 0;
+        locationSelect.selectedIndex = 0;
+        departmentSelect.selectedIndex = 0;
+    }
+}
+
+function filterTableByFirstLettersAndFilters(letters) {
+    var rows = document.querySelectorAll('#employees-table tbody tr');
+
+
+    if (letters.length === 0) {
+        rows.forEach(row => {
+            row.style.display = '';
+        });
+    } else {
+
+        // Loop through each row
+        rows.forEach(row => {
+            if (row.style.display === 'none') {
+                return;
+            }
+            // Get the first cell in the row
+            var firstCell = row.querySelector('td:nth-child(2) .profile-name');
+
+            // If the first letter of the cell's text is in the letters array, show the row, otherwise hide it
+            if (letters.includes(firstCell.textContent.trim().charAt(0).toUpperCase())) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
     }
 }
 
@@ -68,7 +102,9 @@ function checkboxes() {
             checkbox.checked = this.checked;
         });
     });
-    
+}
+
+function checkboxIsChecked(){
     // Get all employee checkboxes
     var checkboxes = document.querySelectorAll('#employees-table tbody tr input[type="checkbox"]');
     
@@ -117,7 +153,6 @@ function filterEmployeesTable() {
     } else {
         // Get all the rows in the table
         var rows = document.querySelectorAll('#employees-table tbody tr');
-
         // Loop through each row
         rows.forEach(row => {
             // if (row.style.display === 'none') {
@@ -141,5 +176,55 @@ function filterEmployeesTable() {
                 row.style.display = '';
             }
         });
+        filterTableByFirstLettersAndFilters(selectedLetters)
+
     }
+}
+
+
+
+function LoadFilterOptions() {
+    // Get all the location cells and append if doesn't exist
+    var locationCells = document.querySelectorAll('#employees-table tbody tr td:nth-child(3)');
+    var locationOptions = document.getElementById('filter-Location');
+    var locationValues = [];
+    locationCells.forEach(cell => {
+        locationValues.push(cell.textContent);
+    });
+    locationValues = locationValues.filter((value, index, self) => self.indexOf(value) === index);
+    locationValues.forEach(value => {
+        var option = document.createElement('option');
+        option.value = value;
+        option.textContent = value;
+        locationOptions.appendChild(option);
+    });
+
+    // Get all the department cells
+    var departmentCells = document.querySelectorAll('#employees-table tbody tr td:nth-child(4)');
+    var departmentOptions = document.getElementById('filter-Department');
+    var departmentValues = [];
+    departmentCells.forEach(cell => {
+        departmentValues.push(cell.textContent);
+    });
+    departmentValues = departmentValues.filter((value, index, self) => self.indexOf(value) === index);
+    departmentValues.forEach(value => {
+        var option = document.createElement('option');
+        option.value = value;
+        option.textContent = value;
+        departmentOptions.appendChild(option);
+    });
+
+    var statusCells = document.querySelectorAll('#employees-table tbody tr td:nth-child(7)');
+    var statusOptions = document.getElementById('filter-Status');
+    var statusValues = [];
+    statusCells.forEach(cell => {
+        statusValues.push(cell.textContent);
+    });
+    statusValues = statusValues.filter((value, index, self) => self.indexOf(value) === index);
+    statusValues.forEach(value => {
+        var option = document.createElement('option');
+        option.value = value;
+        option.textContent = value;
+        statusOptions.appendChild(option);
+    });
 }

@@ -14,7 +14,8 @@ function NavbarLoad() {
     .then((res) => res.text())
     .then((data) => {
       sidebarcontainer.innerHTML = data;
-    });
+    })
+    .catch((error) => console.error('Error:', error));
   
   // including searchbar html code
   
@@ -25,7 +26,8 @@ function NavbarLoad() {
     .then((res) => res.text())
     .then((data) => {
       searchbar.innerHTML = data;
-    });
+    })
+    .catch((error) => console.error('Error:', error));
 }
 
 // onclick of emeployee in the sidebar, load the employee.html filea and display it in the main content area
@@ -47,12 +49,19 @@ function EmployeeMenu() {
       checkboxes();
     })
     .then(() => {
+      setTimeout(() => {
+        checkboxIsChecked();
+        LoadFilterOptions();
+      }, 1000);
+    })
+    .then(() => {
       const employeeMenu = document.querySelector("#employee-menu");
       employeeMenu.classList.add("menuactive");
       // remove active class from other menu
       const rolesMenu = document.querySelector("#roles-menu");
       rolesMenu.classList.remove("menuactive");
-    });
+    })
+    .catch((error) => console.error('Error:', error));
 }
 
 
@@ -72,7 +81,8 @@ function RolesMenu() {
       // remove active class from other menu
       const employeeMenu = document.querySelector("#employee-menu");
       employeeMenu.classList.remove("menuactive");
-    });
+    })
+    .catch((error) => console.error('Error:', error));
     
 }
 
@@ -92,7 +102,8 @@ function RoleDetails() {
       // remove active class from other menu
       const rolesMenu = document.querySelector("#roles-menu");
       rolesMenu.classList.remove("menuactive");
-    });
+    })
+    .catch((error) => console.error('Error:', error));
 }
 
 
@@ -109,7 +120,8 @@ function addemployeepage() {
       employeeMenu.classList.add("menuactive");
       const rolesMenu = document.querySelector("#roles-menu");
       rolesMenu.classList.remove("menuactive");
-    });
+    })
+    .catch((error) => console.error('Error:', error));
 }
 
 

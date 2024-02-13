@@ -9,7 +9,7 @@
   list-style-type: none;
   display: flex;
   margin-top: 10px;
-  width: 95%;
+  width: 98%;
   justify-content: space-between;
 }
 
@@ -90,6 +90,14 @@ td.profile-cell {
 .table-status-active {
   color: green;
   background-color: rgb(151, 255, 151);
+  border-radius: 5px;
+  padding: 0.3rem;
+  margin: auto;
+}
+
+.table-status-inactive {
+  color: red;
+  background-color: rgb(255 212 212);
   border-radius: 5px;
   padding: 0.3rem;
   margin: auto;
