@@ -6,10 +6,14 @@
     </p>
   </div>
   <div class="buttons">
-    <button class="export-button" onclick="download_table_as_csv('employees-table')">
+    <button class="export-button" onclick="export_options()">
       <i class="bx bx-export"></i>
       <span class="nav-item-text">Export</span>
     </button>
+    <div class="export-options">
+      <button onclick="download_table_as_xlsx('employees-table')" >Export as XLSX</button>
+      <button onclick="download_table_as_csv('employees-table')">Export as CSV</button>
+    </div>
     <button class="add-employee-button" onclick="addemployeepage()">
       <i class="bx bx-plus"></i>
       <span class="nav-item-text">Add Employees</span>
@@ -18,7 +22,7 @@
 </div>
 <div class="table-filters">
   <ul class="table-filters-list">
-    <li class="table-filters-icon" onclick="filterTableByFirstLettersReset()"><img src="assets/Vector.png" alt="FilterByLetter" /></li>
+    <li class="table-filters-icon"    onclick="filterTableByFirstLettersReset()"><img src="assets/Interface/filter.svg" alt="FilterByLetter" id="table-filters-icon"/></li>
     <li><button type="button" id="filter-A">A</button></li>
     <li><button type="button" id="filter-B">B</button></li>
     <li><button type="button" id="filter-C">C</button></li>
@@ -62,7 +66,7 @@
         <option value="" disabled selected>Department</option>
       </select>
     </div>
-    <div class="filters-buttons">
+    <div class="filters-buttons" id="filters-reset-apply-buttons">
       <button class="reset-button white-red-button" onclick="filtersReset()">Reset</button>
       <button class="apply-button red-white-button" onclick="filterEmployeesTable()">Apply</button>
     </div>
@@ -71,7 +75,7 @@
     <div class="table-modify">
       <div class="table-modify-delete">
         <img src="assets/Interface/arrow-turn left -down.svg" alt="" />
-        <button class="lightred-red-button">Delete</button>
+        <button class="lightred-red-button" id="emp-table-delete" onclick="deleteEmployees()">Delete</button>
       </div>
       <div class="table-modify-add">
         <img src="assets/table-add.png" alt="" />
@@ -84,25 +88,25 @@
             <th class="checkbox">
               <input type="checkbox" name="" id="table-header-checkbox" />
             </th>
-            <th>
+            <th onclick="sortBy(1)">
               user <span><i class="bx bx-expand-alt"></i></span>
             </th>
-            <th>
+            <th onclick="sortBy(2)">
               location <span><i class="bx bx-expand-alt"></i></span>
             </th>
-            <th>
+            <th onclick="sortBy(3)">
               Department <span><i class="bx bx-expand-alt"></i></span>
             </th>
-            <th>
+            <th onclick="sortBy(4)">
               Role <span><i class="bx bx-expand-alt"></i></span>
             </th>
-            <th>
+            <th onclick="sortBy(5)">
               Emp id <span><i class="bx bx-expand-alt"></i></span>
             </th>
-            <th>
+            <th onclick="sortBy(6)">
               Status <span><i class="bx bx-expand-alt"></i></span>
             </th>
-            <th>
+            <th onclick="sortBy(7)">
               joint DT <span><i class="bx bx-expand-alt"></i></span>
             </th>
             <th>...</th>

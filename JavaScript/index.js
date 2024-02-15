@@ -51,7 +51,7 @@ function EmployeeMenu() {
     .then(() => {
       setTimeout(() => {
         checkboxIsChecked();
-        LoadFilterOptions();
+        LoadFilterOptions();  
       }, 1000);
     })
     .then(() => {
