@@ -147,6 +147,23 @@ function addemployeepage() {
 }
 
 
+// add role page
+
+function addrolepage() {
+  const mainContainer = document.querySelector(".main-content");
+  fetch("HTML/AddRole.html")
+  .then((res) => res.text())
+  .then((data) => {
+      mainContainer.innerHTML = data;
+    })
+  .then(() => {
+      const employeeMenu = document.querySelector("#employee-menu");
+      employeeMenu.classList.remove("menuactive");
+      const rolesMenu = document.querySelector("#roles-menu");
+      rolesMenu.classList.add("menuactive");
+    })
+  .catch((error) => console.error('Error:', error));
+}
 
 
 
@@ -154,4 +171,35 @@ function addemployeepage() {
 function defaultpage() {
   NavbarLoad();
   EmployeeMenu();
+}
+
+
+
+
+
+
+function CustomAlert(status, message){
+  var alertContainer = document.querySelector('.alert-messages');
+  var alertDiv = document.createElement('div');
+  var countdown = 5; // Set the initial countdown value
+
+  alertDiv.className = 'alert alert-' + status;
+  alertDiv.innerText = message + ' \n ' + countdown + ' seconds.';
+
+  document.querySelector('.alert-messages').classList.add('show');
+  alertContainer.appendChild(alertDiv);
+
+  // Update the countdown every second
+  var countdownInterval = setInterval(function() {
+    countdown--;
+    if (countdown >= 0) {
+      alertDiv.innerText = message + '.\n' + countdown + ' seconds.';
+    }
+  }, 1000);
+
+  setTimeout(function() {
+    clearInterval(countdownInterval); // Stop the countdown
+    alertDiv.remove();
+    document.querySelector('.alert-messages').classList.remove('show');
+  }, 5000);
 }

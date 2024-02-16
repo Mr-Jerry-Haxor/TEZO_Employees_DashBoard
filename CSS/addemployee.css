@@ -79,6 +79,11 @@
     padding-bottom: 0.3rem;
 }
 
+.form-group textarea{
+    width: 480px;
+    height: 150px;
+    padding: 1rem;
+}
 
 .form-group-2{
     display: flex; 

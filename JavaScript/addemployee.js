@@ -34,10 +34,12 @@ function addemployeeFormSubmitValidation(){
 
             // Add event listener to each field
             field.addEventListener('input', function() {
-                if (!field.checkValidity()) {
+                if (field.value.trim() === '') { // Check if the value is empty
                     field.classList.add('err');
-                    errorSpan.innerHTML = "<img src='assets/exclamation-mark-diamond.svg' alt='error' style='height:15px' > " + "This " + fieldId + ' field is required'
-                    errorSpan.insertText = fieldId + ' is required';
+                    errorSpan.innerHTML = "<img src='assets/exclamation-mark-diamond.svg' alt='error' style='height:15px' > " + "This " + fieldId + ' field is required';
+                } else if (!field.checkValidity()) {
+                    field.classList.add('err');
+                    errorSpan.innerHTML = "<img src='assets/exclamation-mark-diamond.svg' alt='error' style='height:15px' > " + "Please enter the valid data";
                 } else {
                     field.classList.remove('err');
                     errorSpan.innerText = '';

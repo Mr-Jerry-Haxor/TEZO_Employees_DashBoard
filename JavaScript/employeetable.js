@@ -78,36 +78,6 @@ function filterTableByFirstLetters(letters) {
 }
 
 
-//this function filters the table by first letters and filters( status , department , location)
-// function filterTableByFirstLettersAndFilters(letters) {
-//     var rows = document.querySelectorAll('#employees-table tbody tr');
-
-
-//     if (letters.length === 0) {
-//         rows.forEach(row => {
-//             row.style.display = '';
-//         });
-//     } else {
-
-//         // Loop through each row
-//         rows.forEach(row => {
-//             if (row.style.display === 'none') {
-//                 return;
-//             }
-//             // Get the first cell in the row
-//             var firstCell = row.querySelector('td:nth-child(2) .profile-name');
-
-//             // If the first letter of the cell's text is in the letters array, show the row, otherwise hide it
-//             if (letters.includes(firstCell.textContent.trim().charAt(0).toUpperCase())) {
-//                 row.style.display = '';
-//             } else {
-//                 row.style.display = 'none';
-//             }
-//         });
-//     }
-// }
-
-
 function checkboxes() {
     document.getElementById('table-header-checkbox').addEventListener('change', function() {
         // Get all employee checkboxes
@@ -195,9 +165,6 @@ function filterEmployeesTable() {
         var rows = document.querySelectorAll('#employees-table tbody tr');
         // Loop through each row
         rows.forEach(row => {
-            // if (row.style.display === 'none') {
-            //     return;
-            // }
             // Get the cells in the row
             var statusCell = row.querySelector('td:nth-child(7)');
             var locationCell = row.querySelector('td:nth-child(3)');
@@ -210,10 +177,6 @@ function filterEmployeesTable() {
                 row.style.display = '';
             }
         });
-        // run below function only when selectedLetters is not empty
-        // if (selectedLetters.length!== 0) {
-        //     filterTableByFirstLettersAndFilters(selectedLetters)
-        // }
     }
 }
 

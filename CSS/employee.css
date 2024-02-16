@@ -172,3 +172,14 @@ tr td {
   transform: rotate(-45deg);
   font-size: small;
 }
+
+
+
+
+
+.emp-table-more{
+  flex-direction: column;
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+}

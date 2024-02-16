@@ -170,3 +170,7 @@
   border-radius: 5px;
   padding-right: 0;
 }
+
+.menuactive img{
+  filter: invert(18%) sepia(98%) saturate(7171%) hue-rotate(359deg) brightness(101%) contrast(114%);
+}
