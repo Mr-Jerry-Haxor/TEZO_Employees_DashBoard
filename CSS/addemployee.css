@@ -11,7 +11,7 @@
 }
 
 .profile-picture-preview{
-    gap: 10px;
+    margin: 10px;
 }
 
 .profile-img-upload-btn{
@@ -33,6 +33,7 @@
 .profile-picture-preview img{
     width: 80px;
     height: 80px;
+    border: 1px solid #b9b9b9a1;
     border-radius: 50%;
     margin-right: 10px;
 }
@@ -110,3 +111,12 @@
     gap: 1rem;
     padding: 1rem 5rem 2rem 2rem;
 }
+
+
+.required-error{
+    color: red;
+    font-size: small;
+}
+
+
+.err { background: #ffe6ee; border: 1px solid #b1395f; }

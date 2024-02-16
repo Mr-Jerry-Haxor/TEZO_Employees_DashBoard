@@ -1,8 +1,26 @@
 function toggleSidebar() {
   const sidebar = document.querySelector(".sidebar");
   const mainContainer = document.querySelector(".main-container");
+  const closedSidebarElements = document.querySelectorAll(".closed-sidebar");
+  const min_logo = document.querySelector(".sidebar-closed-logo");
+
   sidebar.classList.toggle("toggleopen");
   mainContainer.classList.toggle("sidebar-open");
+
+  // If the sidebar is open
+  if (sidebar.classList.contains("toggleopen")) {
+    // Remove the 'closed-sidebar-active' class from each 'closed-sidebar' element
+    closedSidebarElements.forEach(element => {
+      element.classList.remove("closed-sidebar-active");
+    });
+    min_logo.style.display = "none";
+  } else {
+    // If the sidebar is closed, add the 'closed-sidebar-active' class to each 'closed-sidebar' element
+    closedSidebarElements.forEach(element => {
+      element.classList.add("closed-sidebar-active");
+    });
+    min_logo.style.display = "block";
+  }
 }
 // including sidebar html code
 
@@ -101,7 +119,7 @@ function RoleDetails() {
       employeeMenu.classList.remove("menuactive");
       // remove active class from other menu
       const rolesMenu = document.querySelector("#roles-menu");
-      rolesMenu.classList.remove("menuactive");
+      rolesMenu.classList.add("menuactive");
     })
     .catch((error) => console.error('Error:', error));
 }
@@ -120,6 +138,9 @@ function addemployeepage() {
       employeeMenu.classList.add("menuactive");
       const rolesMenu = document.querySelector("#roles-menu");
       rolesMenu.classList.remove("menuactive");
+    })
+    .then(() => {
+      addEmployeeFormValidation();
     })
     .catch((error) => console.error('Error:', error));
 }

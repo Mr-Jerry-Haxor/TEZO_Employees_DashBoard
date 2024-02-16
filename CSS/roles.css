@@ -6,8 +6,9 @@
 
 .role-card-row {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   margin-bottom: 20px;
+  width: 95%;
 }
 
 .role-card {
@@ -15,9 +16,9 @@
   border-radius: 5px;
   padding: 10px;
   margin: 0 10px;
-  width: 350px;
+  width: 33%;
   display: grid;
-  grid-template-columns: 1fr 1.2fr 0.8fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 0.1fr;
   gap: 0px 30px;
   grid-template-areas:
