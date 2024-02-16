@@ -141,11 +141,15 @@ body {
 
 .alert-messages {
   position: fixed;
-  top: 200px;
-  right: -300px;
+  top: 160px;
+  right: -300px; /* Initially place the alert message off the screen */
   width: 300px;
   z-index: 9999;
   transition: right 0.5s ease-in-out;
+}
+
+.alert-messages.show {
+  right: 0; /* Move the alert message on the screen when the 'show' class is added */
 }
 
 .alert-messages .alert {

@@ -130,6 +130,7 @@ function addEmployee() {
 
     window.location.reload(true);
     console.log("reload completed");
+    AddEmployeeAlert('success');
 };
 
 
