@@ -235,3 +235,17 @@ function download_table_as_xlsx(table_id) {
     link.click();
     document.body.removeChild(link);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
