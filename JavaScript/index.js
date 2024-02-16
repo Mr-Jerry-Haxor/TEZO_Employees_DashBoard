@@ -141,6 +141,7 @@ function addemployeepage() {
     })
     .then(() => {
       addEmployeeFormValidation();
+      addemployeeFormSubmitValidation();
     })
     .catch((error) => console.error('Error:', error));
 }
