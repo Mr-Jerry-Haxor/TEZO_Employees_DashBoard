@@ -12,7 +12,8 @@ function addEmployeeFormValidation() {
         field.addEventListener('input', function() {
             if (!field.checkValidity()) {
                 field.classList.add('err');
-                errorSpan.innerText = fieldId + ' is required';
+                errorSpan.innerHTML = "<img src='assets/exclamation-mark-diamond.svg' alt='error' style='height:15px' > " + "This " + fieldId + ' field is required'
+                errorSpan.insertText = fieldId + ' is required';
             } else {
                 field.classList.remove('err');
                 errorSpan.innerText = '';

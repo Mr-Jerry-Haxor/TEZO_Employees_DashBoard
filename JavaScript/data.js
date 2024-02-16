@@ -111,26 +111,35 @@ function addEmployee() {
     employee["empid"] = document.getElementById('empid').value;
     employee["fisrtname"] = document.getElementById('firstname').value;
     employee["lastname"] = document.getElementById('lastname').value;
-    employee["DOB"] = document.getElementById('dob').value;
+    var dob = document.getElementById('dob').value;
+    // chnaging the format to dd/mm/yyyy
+    employee["DOB"] = dob.split('/').reverse().join('-');
     employee["emailid"] = document.getElementById('email').value;
     employee["mobile"] = document.getElementById('mobile').value;
     employee["location"] = document.getElementById('location').value;
     employee["Department"] = document.getElementById('department').value;
     employee["jobtitle"] = document.getElementById('jobtitle').value;
     employee["profilepath"] = document.getElementById('profile-picture').value;
-    employee["joining"] = document.getElementById('joiningdate').value;
+    var joindate = document.getElementById('joiningdate').value;
+    // chnaging the format to dd/mm/yyyy
+    employee["joining"] = joindate.split('/').reverse().join('-');
     employee["AssignManager"] = document.getElementById('assignmanager').value;
     employee["AssignProject"] = document.getElementById('assignproject').value;
+
     
     employee["status"] = "Active";
     // get local storage data and add new record to it
     let localdata = JSON.parse(localStorage.getItem("data"));
     localdata.Employees.push(employee);
     localStorage.setItem("data", JSON.stringify(localdata));
+    console.log("Added employee");
 
-    window.location.reload(true);
-    console.log("reload completed");
-    AddEmployeeAlert('success');
+    EmployeeMenu();
+    console.log("aleart started");
+    setTimeout(() => {
+        AddEmployeeAlert('success');
+    }, 1000);
+    console.log("aleart completed");
 };
 
 
