@@ -55,7 +55,7 @@ function LoadEmployeeDataByArray(employeeArray){
         divProfileInfo.className = "profile-info";
         let spanProfileName = document.createElement('span');
         spanProfileName.className = "profile-name";
-        spanProfileName.textContent = employee.fisrtname + employee.lastname;
+        spanProfileName.textContent = employee.firstname + employee.lastname;
         divProfileInfo.appendChild(spanProfileName);
         let spanProfileEmail = document.createElement('span');
         spanProfileEmail.className = "profile-email";
@@ -169,7 +169,7 @@ function addEmployee() {
 
         if (isValid && !exists) {
             employee["empid"] = document.getElementById('empid').value;
-            employee["fisrtname"] = document.getElementById('firstname').value;
+            employee["firstname"] = document.getElementById('firstname').value;
             employee["lastname"] = document.getElementById('lastname').value;
             var dob = document.getElementById('dob').value;
             employee["DOB"] = dob.split('-').reverse().join('/');

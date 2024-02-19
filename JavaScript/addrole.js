@@ -2,8 +2,8 @@ function searchEmployees(query) {
     localdata = JSON.parse(localStorage.getItem("data"));
     let employees = localdata.Employees;
     var results = employees.filter(function(employee) {
-        if (employee.fisrtname) {
-            var emp = employee.fisrtname.toLowerCase() + employee.lastname.toLowerCase();
+        if (employee.firstname) {
+            var emp = employee.firstname.toLowerCase() + employee.lastname.toLowerCase();
             return emp.includes(query.toLowerCase());
         }
         return false;
@@ -29,7 +29,7 @@ function searchEmployees(query) {
         var img = document.createElement('img');
         img.src = employee.profilepath;
 
-        var name = document.createTextNode(employee.fisrtname + " " + employee.lastname);
+        var name = document.createTextNode(employee.firstname + " " + employee.lastname);
 
         employeeDiv.appendChild(checkbox);
         employeeDiv.appendChild(img);

@@ -56,7 +56,7 @@ function filterTableByFirstLetters(letters) {
     if (letters.length > 0 && employees.length > 0) {
         emp_filter_sort_data = employees.filter(employee => {
             // Get the first letter of the employee's name
-            var firstLetter = employee.fisrtname.trim().charAt(0).toUpperCase();
+            var firstLetter = employee.firstname.trim().charAt(0).toUpperCase();
 
             // If the first letter is in the letters array, include the employee in the filtered data
             return letters.includes(firstLetter);

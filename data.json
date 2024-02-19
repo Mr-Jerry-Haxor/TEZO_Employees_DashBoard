@@ -14,7 +14,7 @@
     "Employees": [
       {
         "empid": "TZ123001",
-        "fisrtname": "Mabel",
+        "firstname": "Mabel",
         "lastname": "Mejia",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -30,7 +30,7 @@
       },
       {
         "empid": "TZ123002",
-        "fisrtname": "Lemuel",
+        "firstname": "Lemuel",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -46,7 +46,7 @@
       },
       {
         "empid": "TZ123003",
-        "fisrtname": "Teddy",
+        "firstname": "Teddy",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -62,7 +62,7 @@
       },
       {
         "empid": "TZ123004",
-        "fisrtname": "Adolph",
+        "firstname": "Adolph",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -78,7 +78,7 @@
       },
       {
         "empid": "TZ123005",
-        "fisrtname": "Craig",
+        "firstname": "Craig",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -94,7 +94,7 @@
       },
       {
         "empid": "TZ123006",
-        "fisrtname": "Gaylord",
+        "firstname": "Gaylord",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -110,7 +110,7 @@
       },
       {
         "empid": "TZ123007",
-        "fisrtname": "Deshawn",
+        "firstname": "Deshawn",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -126,7 +126,7 @@
       },
       {
         "empid": "TZ123008",
-        "fisrtname": "Tonia",
+        "firstname": "Tonia",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -142,7 +142,7 @@
       },
       {
         "empid": "TZ123009",
-        "fisrtname": "Odis",
+        "firstname": "Odis",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -158,7 +158,7 @@
       },
       {
         "empid": "TZ123010",
-        "fisrtname": "Noe",
+        "firstname": "Noe",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -174,7 +174,7 @@
       },
       {
         "empid": "TZ123011",
-        "fisrtname": "Lidia",
+        "firstname": "Lidia",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -190,7 +190,7 @@
       },
       {
         "empid": "TZ123012",
-        "fisrtname": "Deni",
+        "firstname": "Deni",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -206,7 +206,7 @@
       },
       {
         "empid": "TZ123013",
-        "fisrtname": "Winston",
+        "firstname": "Winston",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -222,7 +222,7 @@
       },
       {
         "empid": "TZ123014",
-        "fisrtname": "Imelda",
+        "firstname": "Imelda",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -238,7 +238,7 @@
       },
       {
         "empid": "TZ123015",
-        "fisrtname": "Marcellus",
+        "firstname": "Marcellus",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -254,7 +254,7 @@
       },
       {
         "empid": "TZ123016",
-        "fisrtname": "Sung",
+        "firstname": "Sung",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -270,7 +270,7 @@
       },
       {
         "empid": "TZ123017",
-        "fisrtname": "Vince",
+        "firstname": "Vince",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -286,7 +286,7 @@
       },
       {
         "empid": "TZ123018",
-        "fisrtname": "Jacinto",
+        "firstname": "Jacinto",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -302,7 +302,7 @@
       },
       {
         "empid": "TZ123019",
-        "fisrtname": "Zack",
+        "firstname": "Zack",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -318,7 +318,7 @@
       },
       {
         "empid": "TZ123020",
-        "fisrtname": "Oren",
+        "firstname": "Oren",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -334,7 +334,7 @@
       },
       {
         "empid": "TZ123021",
-        "fisrtname": "Paula",
+        "firstname": "Paula",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -350,7 +350,7 @@
       },
       {
         "empid": "TZ123022",
-        "fisrtname": "Quincy",
+        "firstname": "Quincy",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
@@ -366,7 +366,7 @@
       },
       {
         "empid": "TZ123023",
-        "fisrtname": "Refugio",
+        "firstname": "Refugio",
         "lastname": "wick",
         "DOB": "08/02/2000",
         "emailid": "jhonwick@email.com",
