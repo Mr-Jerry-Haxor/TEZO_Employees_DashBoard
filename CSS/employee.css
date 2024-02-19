@@ -175,11 +175,33 @@ tr td {
 
 
 
+.button-more{
+  background-color: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: x-large;
+}
 
 
 .emp-table-more{
+  position: absolute;
+  right: 25px;
   flex-direction: column;
   padding: 5px;
   text-decoration: none;
   text-align: center;
+  background-color: rgb(255, 185, 185);
+  color: red;
+  border-radius: 5px;
 }
+
+.emp-table-more button{
+  background-color: transparent;
+  color: red;
+  font-size: small;
+  padding: 5px;
+  border: none;
+  margin: 3px;
+  cursor: pointer;
+} 
