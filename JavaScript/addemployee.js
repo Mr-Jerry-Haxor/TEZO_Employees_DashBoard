@@ -49,35 +49,3 @@ function addemployeeFormSubmitValidation(){
     });
 }
 
-
-
-function AddEmployeeAlert(status){
-    var alertContainer = document.querySelector('.alert-messages');
-    var alertDiv = document.createElement('div');
-    var countdown = 5; // Set the initial countdown value
-
-    if(status === 'success'){
-        alertDiv.className = 'alert alert-success';
-        alertDiv.innerText = 'Employee added successfully. \n ' + countdown + ' seconds.';
-    }else{
-        alertDiv.className = 'alert alert-danger';
-        alertDiv.innerText = 'Employee not added. \n' + countdown + ' seconds.';
-    }
-
-    document.querySelector('.alert-messages').classList.add('show');
-    alertContainer.appendChild(alertDiv);
-
-    // Update the countdown every second
-    var countdownInterval = setInterval(function() {
-        countdown--;
-        if (countdown >= 0) {
-            alertDiv.innerText = (status === 'success' ? 'Employee added successfully' : 'Employee not added') + '.\n' + countdown + ' seconds.';
-        }
-    }, 1000);
-
-    setTimeout(function() {
-        clearInterval(countdownInterval); // Stop the countdown
-        alertDiv.remove();
-        document.querySelector('.alert-messages').classList.remove('show');
-    }, 5000);
-}
