@@ -332,6 +332,18 @@ function deleteEmployees() {
         }
 
         var employees = data.Employees;
+        var isEmployeeSelected = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+        if (!isEmployeeSelected) {
+            console.error("No employee selected for deletion.");
+            return;
+        }
+
+        var confirmation = confirm("Are you sure you want to delete the selected employees?");
+        if (!confirmation) {
+            return;
+        }
+
         checkboxes.forEach(checkbox => {
             if (checkbox.checked) {
                 employees = employees.filter(employee => employee.empid !== checkbox.id);
@@ -343,7 +355,6 @@ function deleteEmployees() {
         
         localStorage.setItem("data", JSON.stringify(data));
         window.location.reload(true);
-        // console.log("reload completed");
     } catch (error) {
         console.error("An error occurred while deleting employees: ", error);
     }
@@ -351,6 +362,11 @@ function deleteEmployees() {
 
 function deleteEmployee(empid) {
     try {
+        var confirmation = confirm("Are you sure you want to delete this ( "+ empid + " ) employee?");
+        if (!confirmation) {
+            return;
+        }
+
         var data = JSON.parse(localStorage.getItem("data"));
 
         if (!data || !data.Employees) {
@@ -383,4 +399,19 @@ function viewmore(empid){
     } else {
         divMore.style.display = "none";
     }
+}
+
+
+
+
+
+
+function EditEmployeeDetails(empid){
+    var data = JSON.parse(localStorage.getItem("data"));
+    if (!data ||!data.Employees) {
+        CustomAlert("error", "No employee data found in local storage.");
+        return;
+    }
+    var employees = data.Employees;
+    
 }

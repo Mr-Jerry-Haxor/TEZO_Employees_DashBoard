@@ -151,45 +151,50 @@ function addEmployee() {
         }
     });
 
-    if (isValid) {
-        localdata = JSON.parse(localStorage.getItem("data"));
-        let employees = localdata.Employees;
+
+
+    var data = JSON.parse(localStorage.getItem("data"));
+    var employees = data ? data.Employees : null;
+
+    if (data && employees) {
+        var exists = false;
+        var empid = document.getElementById('empid').value;
         employees.forEach(employee => {
             if (employee.empid === empid) {
                 CustomAlert('error', 'Employee ID already exists');
+                exists = true;
                 return false;
             }
-        });
-        employee["empid"] = document.getElementById('empid').value;
-        employee["fisrtname"] = document.getElementById('firstname').value;
-        employee["lastname"] = document.getElementById('lastname').value;
-        var dob = document.getElementById('dob').value;
-        employee["DOB"] = dob.split('-').reverse().join('/');
-        employee["emailid"] = document.getElementById('email').value;
-        employee["mobile"] = document.getElementById('mobile').value;
-        employee["location"] = document.getElementById('location').value;
-        employee["Department"] = document.getElementById('department').value;
-        employee["jobtitle"] = document.getElementById('jobtitle').value;
-        employee["profilepath"] = document.getElementById('profile-picture').value;
-        var joindate = document.getElementById('joiningdate').value;
-        employee["joining"] = joindate.split('-').reverse().join('/');
-        employee["AssignManager"] = document.getElementById('assignmanager').value;
-        employee["AssignProject"] = document.getElementById('assignproject').value;
-        employee["status"] = "Active";
+        }); 
 
-        let localdata = JSON.parse(localStorage.getItem("data"));
-        localdata.Employees.push(employee);
-        localStorage.setItem("data", JSON.stringify(localdata));
+        if (isValid && !exists) {
+            employee["empid"] = document.getElementById('empid').value;
+            employee["fisrtname"] = document.getElementById('firstname').value;
+            employee["lastname"] = document.getElementById('lastname').value;
+            var dob = document.getElementById('dob').value;
+            employee["DOB"] = dob.split('-').reverse().join('/');
+            employee["emailid"] = document.getElementById('email').value;
+            employee["mobile"] = document.getElementById('mobile').value;
+            employee["location"] = document.getElementById('location').value;
+            employee["Department"] = document.getElementById('department').value;
+            employee["jobtitle"] = document.getElementById('jobtitle').value;
+            employee["profilepath"] = document.getElementById('profile-picture').value;
+            var joindate = document.getElementById('joiningdate').value;
+            employee["joining"] = joindate.split('-').reverse().join('/');
+            employee["AssignManager"] = document.getElementById('assignmanager').value;
+            employee["AssignProject"] = document.getElementById('assignproject').value;
+            employee["status"] = "Active";
 
-        console.log("Added employee");
+            let localdata = JSON.parse(localStorage.getItem("data"));
+            localdata.Employees.push(employee);
+            localStorage.setItem("data", JSON.stringify(localdata));
 
-        // Call EmployeeMenu and AddEmployeeAlert if they are defined
-        if (typeof EmployeeMenu === 'function') {
             EmployeeMenu();
-        }
-        if (typeof AddEmployeeAlert === 'function') {
             CustomAlert('success', 'Employee added successfully');
+            
         }
+    } else {
+        console.error('Data or Employees is null');
     }
 }
 
