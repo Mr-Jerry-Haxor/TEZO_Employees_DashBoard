@@ -93,18 +93,22 @@ function LoadEmployeeDataByArray(employeeArray){
         row.appendChild(cellDate);
 
         let cellMore = document.createElement('td');
-        cellMore.textContent = "...";
+        let buttonmore = document.createElement('button');
+        buttonmore.className = "button-more";
+        buttonmore.textContent = "...";
+        let empid = employee.empid+ "_more";
+        buttonmore.setAttribute("onclick", "viewmore('"+empid+"')");
+        cellMore.appendChild(buttonmore);
         let divMore = document.createElement('div');
         divMore.className = "emp-table-more";
-        divMore.id = "emp-" + employee.empid;
-        let aViewDetails = document.createElement('a');
-        aViewDetails.href = "/";
+        divMore.id = employee.empid+"_more";
+        let aViewDetails = document.createElement('button');
         aViewDetails.textContent = "View Details";
-        let aEdit = document.createElement('a');
-        aEdit.href = "/";
+        let aEdit = document.createElement('button');
         aEdit.textContent = "Edit";
-        let aDelete = document.createElement('a');
-        aDelete.href = "/";
+        let aDelete = document.createElement('button');
+        aDelete.className = "button-delete";
+        aDelete.setAttribute("onclick", "deleteEmployee('"+employee.empid+"')");
         aDelete.textContent = "Delete";
         divMore.appendChild(aViewDetails);
         divMore.appendChild(aEdit);
@@ -112,25 +116,6 @@ function LoadEmployeeDataByArray(employeeArray){
         // hide this divmore initially and when user click on cellmore.textcontent, show and toggle the cellmore
         divMore.style.display = "none";
         cellMore.appendChild(divMore);
-        // when user click on cellmore(td), show the divmore
-        if (!cellMore) {
-            console.error('cellMore not found');
-        }
-        if (!divMore) {
-            console.error('divMore not found');
-        }
-
-        cellMore.addEventListener('click', function() {
-            console.log('cellMore clicked'); // Check if the click event is firing
-
-            if (divMore.style.display === "none") {
-                divMore.style.display = "flex";
-            } else {
-                divMore.style.display = "none";
-            }
-
-            console.log('divMore display style:', divMore.style.display); // Check the display style of divMore
-        });
         row.appendChild(cellMore);
 
         var t = document.getElementById("employees-table");
@@ -165,8 +150,16 @@ function addEmployee() {
     });
 
     if (isValid) {
+        localdata = JSON.parse(localStorage.getItem("data"));
+        let employees = localdata.Employees;
+        employees.forEach(employee => {
+            if (employee.empid === empid) {
+                CustomAlert('error', 'Employee ID already exists');
+                return false;
+            }
+        });
         employee["empid"] = document.getElementById('empid').value;
-        employee["firstname"] = document.getElementById('firstname').value;
+        employee["fisrtname"] = document.getElementById('firstname').value;
         employee["lastname"] = document.getElementById('lastname').value;
         var dob = document.getElementById('dob').value;
         employee["DOB"] = dob.split('-').reverse().join('/');
@@ -193,7 +186,7 @@ function addEmployee() {
             EmployeeMenu();
         }
         if (typeof AddEmployeeAlert === 'function') {
-            AddEmployeeAlert('success');
+            CustomAlert('success', 'Employee added successfully');
         }
     }
 }
