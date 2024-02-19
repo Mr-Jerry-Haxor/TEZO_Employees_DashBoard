@@ -103,10 +103,10 @@ function LoadEmployeeDataByArray(employeeArray){
         divMore.className = "emp-table-more";
         divMore.id = employee.empid+"_more";
         let aViewDetails = document.createElement('button');
-        aViewDetails.className = "emp-table-more"
+        aViewDetails.className = "button-view-details";
         aViewDetails.textContent = "View Details";
         let aEdit = document.createElement('button');
-        aEdit.className = "emp-table-more"
+        aEdit.className = "button-edit";
         aEdit.textContent = "Edit";
         let aDelete = document.createElement('button');
         aDelete.className = "button-delete";
