@@ -348,3 +348,39 @@ function deleteEmployees() {
         console.error("An error occurred while deleting employees: ", error);
     }
 }
+
+function deleteEmployee(empid) {
+    try {
+        var data = JSON.parse(localStorage.getItem("data"));
+
+        if (!data || !data.Employees) {
+            CustomAlert("error" , "No employee data found in local storage.");
+            return;
+        }
+
+        var employees = data.Employees;
+        employees = employees.filter(employee => employee.empid !== empid);
+        data.Employees = employees;
+        
+        localStorage.setItem("data", JSON.stringify(data));
+        EmployeeMenu();
+    } catch (error) {
+        CustomAlert("error" ,"An error occurred while deleting employees: " + error);
+    }
+}
+
+function viewmore(empid){
+    const divs = document.querySelectorAll(".emp-table-more");
+    divs.forEach(div => {
+        // div.style.display = "none";
+        if (div.id !== empid) {
+            div.style.display = "none";
+        }
+    });
+    const divMore = document.querySelector("#"+empid);
+    if (divMore.style.display == "none") {
+        divMore.style.display = "flex";
+    } else {
+        divMore.style.display = "none";
+    }
+}
