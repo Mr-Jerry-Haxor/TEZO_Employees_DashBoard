@@ -1,4 +1,4 @@
-// this file contains the employee table filters and sorting functions
+// this file contains the employee table filters and sorting functions , also delete functions.
 var selectedLetters = [];
 function Filters() {
     document.querySelectorAll('.table-filters-list button').forEach(button => {
@@ -7,7 +7,7 @@ function Filters() {
             var letter = this.textContent;
             // make that button active
             this.classList.add('filteractive');
-    
+            
             // If the letter is already selected, remove it from the array, otherwise add it
             var index = selectedLetters.indexOf(letter);
             if (index !== -1) {
@@ -354,7 +354,8 @@ function deleteEmployees() {
         data.Employees = employees;
         
         localStorage.setItem("data", JSON.stringify(data));
-        window.location.reload(true);
+        EmployeeMenu();
+        CustomAlert("success", "Selected employees deleted successfully.");
     } catch (error) {
         console.error("An error occurred while deleting employees: ", error);
     }
@@ -380,6 +381,7 @@ function deleteEmployee(empid) {
         
         localStorage.setItem("data", JSON.stringify(data));
         EmployeeMenu();
+        CustomAlert("success", "Selected employee deleted successfully.");
     } catch (error) {
         CustomAlert("error" ,"An error occurred while deleting employees: " + error);
     }
