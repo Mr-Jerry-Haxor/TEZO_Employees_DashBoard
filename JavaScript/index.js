@@ -1,3 +1,5 @@
+
+// sidebar toggle function
 function toggleSidebar() {
   const sidebar = document.querySelector(".sidebar");
   const mainContainer = document.querySelector(".main-container");
@@ -22,8 +24,9 @@ function toggleSidebar() {
     min_logo.style.display = "block";
   }
 }
-// including sidebar html code
 
+
+// including sidebar html code
 function NavbarLoad() {
   const sidebarcontainer = document.querySelector(".sidebar-container");
   fetch(
@@ -48,10 +51,8 @@ function NavbarLoad() {
     .catch((error) => console.error('Error:', error));
 }
 
-// onclick of emeployee in the sidebar, load the employee.html filea and display it in the main content area
 
-
-
+// employee table page
 function EmployeeMenu() {
   const mainContainer = document.querySelector(".main-content");
   fetch(
@@ -83,7 +84,7 @@ function EmployeeMenu() {
 }
 
 
-
+//roles menu page
 function RolesMenu() {
   const mainContainer = document.querySelector(".main-content");
   fetch(
@@ -125,7 +126,7 @@ function RoleDetails() {
 }
 
 
-
+// Add employee page
 function addemployeepage() {
   const mainContainer = document.querySelector(".main-content");
   fetch("HTML/AddEmployee.html")
@@ -140,7 +141,7 @@ function addemployeepage() {
       rolesMenu.classList.remove("menuactive");
     })
     .then(() => {
-      addEmployeeFormValidation();
+      addEmployeeEventListeners();
       addemployeeFormSubmitValidation();
     })
     .catch((error) => console.error('Error:', error));
@@ -148,7 +149,6 @@ function addemployeepage() {
 
 
 // add role page
-
 function addrolepage() {
   const mainContainer = document.querySelector(".main-content");
   fetch("HTML/AddRole.html")
@@ -175,9 +175,7 @@ function defaultpage() {
 
 
 
-
-
-
+// toaster messages for success , warning , info and error types
 function CustomAlert(status, message){
   var alertContainer = document.querySelector('.alert-messages');
   var alertDiv = document.createElement('div');

@@ -1,4 +1,6 @@
 // this file contains the employee table filters and sorting functions , also delete functions.
+
+
 var selectedLetters = [];
 function Filters() {
     document.querySelectorAll('.table-filters-list button').forEach(button => {
@@ -30,6 +32,21 @@ function Filters() {
     });
 }
 
+
+function resetFilters() {
+    var statusSelect = document.getElementById('filter-Status');
+    var locationSelect = document.getElementById('filter-Location');
+    var departmentSelect = document.getElementById('filter-Department');
+    statusSelect.selectedIndex = 0;
+    locationSelect.selectedIndex = 0;
+    departmentSelect.selectedIndex = 0;
+    if (statusSelect.value == "" && locationSelect.value == "" && departmentSelect.value == "") {
+        var filterinactive = document.getElementById('filters-reset-apply-buttons');
+        filterinactive.style.display = "none";
+    }
+}
+
+
 function filterTableByFirstLettersReset(){
     selectedLetters = [];
     filterTableByFirstLetters(selectedLetters);
@@ -40,12 +57,7 @@ function filterTableByFirstLettersReset(){
     });
     var filtericon = document.getElementById('table-filters-icon');
     filtericon.style.filter = "";
-    var statusSelect = document.getElementById('filter-Status');
-    var locationSelect = document.getElementById('filter-Location');
-    var departmentSelect = document.getElementById('filter-Department');
-    statusSelect.selectedIndex = 0;
-    locationSelect.selectedIndex = 0;
-    departmentSelect.selectedIndex = 0;
+    resetFilters();
 }
 
 
@@ -67,14 +79,7 @@ function filterTableByFirstLetters(letters) {
 
     // Load the filtered data into the table
     LoadEmployeeDataByArray(emp_filter_sort_data);
-
-    // Reset the column filters to default
-    var statusSelect = document.getElementById('filter-Status');
-    var locationSelect = document.getElementById('filter-Location');
-    var departmentSelect = document.getElementById('filter-Department');
-    statusSelect.selectedIndex = 0;
-    locationSelect.selectedIndex = 0;
-    departmentSelect.selectedIndex = 0;
+    resetFilters();
 }
 
 
@@ -181,91 +186,45 @@ function filterEmployeesTable() {
 }
 
 
+// below three functions is used to display the filter fields in the table dynamically.
 
-function LoadFilterOptions() {
-    // Get all the location cells and append if doesn't exist
-    var locationCells = document.querySelectorAll('#employees-table tbody tr td:nth-child(3)');
-    var locationOptions = document.getElementById('filter-Location');
-    var locationValues = [];
-    locationCells.forEach(cell => {
-        locationValues.push(cell.textContent);
-    });
-    locationValues = locationValues.filter((value, index, self) => self.indexOf(value) === index);
-    locationValues.forEach(value => {
+function populateFilterOptions(selector, filterId) {
+    var cells = document.querySelectorAll(selector);
+    var options = document.getElementById(filterId);
+    var values = Array.from(cells).map(cell => cell.textContent);
+    values = [...new Set(values)]; // remove duplicates
+    values.forEach(value => {
         var option = document.createElement('option');
         option.value = value;
         option.textContent = value;
-        locationOptions.appendChild(option);
+        options.appendChild(option);
     });
+}
 
-    // Get all the department cells
-    var departmentCells = document.querySelectorAll('#employees-table tbody tr td:nth-child(4)');
-    var departmentOptions = document.getElementById('filter-Department');
-    var departmentValues = [];
-    departmentCells.forEach(cell => {
-        departmentValues.push(cell.textContent);
-    });
-    departmentValues = departmentValues.filter((value, index, self) => self.indexOf(value) === index);
-    departmentValues.forEach(value => {
-        var option = document.createElement('option');
-        option.value = value;
-        option.textContent = value;
-        departmentOptions.appendChild(option);
-    });
-
-    var statusCells = document.querySelectorAll('#employees-table tbody tr td:nth-child(7)');
-    var statusOptions = document.getElementById('filter-Status');
-    var statusValues = [];
-    statusCells.forEach(cell => {
-        statusValues.push(cell.textContent);
-    });
-    statusValues = statusValues.filter((value, index, self) => self.indexOf(value) === index);
-    statusValues.forEach(value => {
-        var option = document.createElement('option');
-        option.value = value;
-        option.textContent = value;
-        statusOptions.appendChild(option);
-    });
-
-    // add eventlisteners to make the reset button and apply button work only when the status or location or  department is has value , if not disable the buttons
+function checkFilterStatus() {
     var statusSelect = document.getElementById('filter-Status');
     var locationSelect = document.getElementById('filter-Location');
     var departmentSelect = document.getElementById('filter-Department');
-    if (statusSelect.value == "" && locationSelect.value == "" && departmentSelect.value == "") {
-        var filterinactive = document.getElementById('filters-reset-apply-buttons');
-        filterinactive.style.display = "none";
-    }
-    statusSelect.addEventListener('change', function() {
-        if (statusSelect.value == "" && locationSelect.value == "" && departmentSelect.value == "") {
-            var filterinactive = document.getElementById('filters-reset-apply-buttons');
-            filterinactive.style.display = "none";
-        } else {
-            var filteractive = document.getElementById('filters-reset-apply-buttons');
-            filteractive.style.display = "";
-        }
-    });
-    locationSelect.addEventListener('change', function() {
-        if (statusSelect.value == "" && locationSelect.value == "" && departmentSelect.value == "") {
-            var filterinactive = document.getElementById('filters-reset-apply-buttons');
-            filterinactive.style.display = "none";
-        } else {
-            var filteractive = document.getElementById('filters-reset-apply-buttons');
-            filteractive.style.display = "";
-        }
-    });
-    departmentSelect.addEventListener('change', function() {
-        if (statusSelect.value == "" && locationSelect.value == "" && departmentSelect.value == "") {
-            var filterinactive = document.getElementById('filters-reset-apply-buttons');
-            filterinactive.style.display = "none";
-        } else {
-            var filteractive = document.getElementById('filters-reset-apply-buttons');
-            filteractive.style.display = "";
-        }
+    var filterButtons = document.getElementById('filters-reset-apply-buttons');
+    filterButtons.style.display = (statusSelect.value || locationSelect.value || departmentSelect.value) ? "" : "none";
+}
+
+function LoadFilterOptions() {
+    populateFilterOptions('#employees-table tbody tr td:nth-child(3)', 'filter-Location');
+    populateFilterOptions('#employees-table tbody tr td:nth-child(4)', 'filter-Department');
+    populateFilterOptions('#employees-table tbody tr td:nth-child(7)', 'filter-Status');
+
+    // add eventlisteners to make the reset button and apply button work only when the status or location or  department is has value , if not disable the buttons
+    ['filter-Status', 'filter-Location', 'filter-Department'].forEach(filterId => {
+        document.getElementById(filterId).addEventListener('change', checkFilterStatus);
     });
 
+    checkFilterStatus();
 }
 
 
+
+// below function is used for the sorting the table data.
 cPrev = -1; // global var saves the previous c, used to
             // determine if the same column is clicked again
 
@@ -317,9 +276,6 @@ function sortBy(c) {
 
 
 
-
-
-
 // function to delete the selected employees
 function deleteEmployees() {
     try {
@@ -361,6 +317,7 @@ function deleteEmployees() {
     }
 }
 
+// function to delete the selected single employee.
 function deleteEmployee(empid) {
     try {
         var confirmation = confirm("Are you sure you want to delete this ( "+ empid + " ) employee?");
@@ -401,19 +358,4 @@ function viewmore(empid){
     } else {
         divMore.style.display = "none";
     }
-}
-
-
-
-
-
-
-function EditEmployeeDetails(empid){
-    var data = JSON.parse(localStorage.getItem("data"));
-    if (!data ||!data.Employees) {
-        CustomAlert("error", "No employee data found in local storage.");
-        return;
-    }
-    var employees = data.Employees;
-    
 }

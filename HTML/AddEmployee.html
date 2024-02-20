@@ -20,36 +20,37 @@
             <h5>Personal information</h5>
             <div class="form-group">
                 <label for="empid">Emp No</label>
-                <input type="text" id="empid" placeholder="EMP ID" />
+                <input type="text" id="empid" placeholder="EMP ID" pattern="[T][Z][0-9]{6}" />
                 <span class="required-error" id="empid-span"></span>
             </div>
             <div class="form-group-3">
                 <div class="form-group">
                     <label for="firstname">First Name</label>
-                    <input type="text" id="firstname" placeholder="First name"  minlength="2" maxlength="8"/>
+                    <input type="text" id="firstname" placeholder="First name"  pattern="[a-z,A-Z, ]+"/>
                     <span class="required-error" id="firstname-span"></span>
                 </div>
                 <div class="form-group">
                     <label for="lastname">Last Name</label>
-                    <input type="text" id="lastname" placeholder="Last name"  />
+                    <input type="text" id="lastname" placeholder="Last name" pattern="[a-z,A-Z, ]+" />
                     <span class="required-error" id="lastname-span"></span>
                 </div>
                 <div class="form-group">
                     <label for="dob">Date of Birth</label>
-                    <input type="date" id="dob" placeholder="dd-mm-yyyy" value=""
-                    min="1987-01-01" max="2024-02-10"/>
+                    <input type="text" id="dob" placeholder="dd/mm/yyyy" value=""
+                    size=10 maxlength=10  onkeydown="this.value=this.value.replace(/^(\d\d)(\d)$/g,'$1/$2').replace(/^(\d\d\/\d\d)(\d+)$/g,'$1/$2').replace(/[^\d\/]/g,'')"/>
                     <span class="required-error" id="dob-span"></span>
                 </div>
             </div>
             <div class="form-group-2">
                 <div class="form-group">
                     <label for="email">Email Id</label>
-                    <input type="email" id="email" placeholder="Email ID"  />
+                    <input type="email" id="email" placeholder="Email ID" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$" />
                     <span class="required-error" id="email-span"></span>
                 </div>
                 <div class="form-group">
                     <label for="mobile">Mobile Number</label>
-                    <input type="tel" id="mobile" placeholder="Mobile Number" min="5000000000" max="9999999999" />
+                    <input type="tel" id="mobile" placeholder="Mobile Number" pattern="[7-9]{1}[0-9]{9}" 
+                    title="Phone number with 6-9 and remaing 9 digit with 0-9"/>
                     <span class="required-error" id="mobile-span"></span>
                 </div>
             </div>
@@ -57,8 +58,8 @@
             <div class="form-group-empinfo">
                 <div class="form-group">
                     <label for="joiningdate">Joining Date</label>
-                    <input type="date" id="joiningdate" placeholder="joining date"   placeholder="dd-mm-yyyy" value=""
-                    min="1987-01-01" max="2030-02-10"/>
+                    <input type="text" id="joiningdate"  placeholder="dd/mm/yyyy" value=""
+                    size=10 maxlength=10  onkeydown="this.value=this.value.replace(/^(\d\d)(\d)$/g,'$1/$2').replace(/^(\d\d\/\d\d)(\d+)$/g,'$1/$2').replace(/[^\d\/]/g,'')"/>
                     <span class="required-error" id="joiningdate-span"></span>
                 </div>
                 <div class="form-group">
