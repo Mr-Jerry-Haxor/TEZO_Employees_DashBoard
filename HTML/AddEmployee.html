@@ -1,7 +1,11 @@
 <div class="add-employee-container">
-    <h4>AddEmployee</h4>
+    <h4 id="add-employee-title">AddEmployee</h4>
     <div class="add-employee-form-div">
         <form id="add-employee-form" onsubmit="addEmployee()">
+
+            <!-- flag to differentiate ADD employee or edit employee Form-->
+            <input type="hidden" id="add-or-edit-employee-flag" value="add">
+
             <!-- upload profile picture and show preview -->
             <div class="profile-picture">
                 <div class="profile-picture-preview">
@@ -102,7 +106,7 @@
             </div>
             <div class="form-btns">
                 <button class="lightred-red-button" onclick="EmployeeMenu()">Cancel</button>
-                <button class="red-white-button" type="submit">Add Employee</button>
+                <button class="red-white-button" type="submit" id="form-submit">Add Employee</button>
             </div>
         </form>
     </div>

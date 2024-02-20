@@ -107,6 +107,7 @@ function LoadEmployeeDataByArray(employeeArray){
         aViewDetails.textContent = "View Details";
         let aEdit = document.createElement('button');
         aEdit.className = "button-edit";
+        aEdit.setAttribute("onclick", "EditEmployeeDetails('"+employee.empid+"')");
         aEdit.textContent = "Edit";
         let aDelete = document.createElement('button');
         aDelete.className = "button-delete";
@@ -159,39 +160,69 @@ function addEmployee() {
     if (data && employees) {
         var exists = false;
         var empid = document.getElementById('empid').value;
+        var AddOrEditFlag = document.getElementById('add-or-edit-employee-flag').value;
         employees.forEach(employee => {
-            if (employee.empid === empid) {
+            if (employee.empid === empid && AddOrEditFlag === "add") {
                 CustomAlert('error', 'Employee ID already exists');
                 exists = true;
                 return false;
             }
         }); 
+        if (AddOrEditFlag === "add") {
+            if (isValid && !exists) {
+                employee["empid"] = document.getElementById('empid').value;
+                employee["firstname"] = document.getElementById('firstname').value;
+                employee["lastname"] = document.getElementById('lastname').value;
+                var dob = document.getElementById('dob').value;
+                employee["DOB"] = dob.split('-').reverse().join('/');
+                employee["emailid"] = document.getElementById('email').value;
+                employee["mobile"] = document.getElementById('mobile').value;
+                employee["location"] = document.getElementById('location').value;
+                employee["Department"] = document.getElementById('department').value;
+                employee["jobtitle"] = document.getElementById('jobtitle').value;
+                employee["profilepath"] = document.getElementById('uploaded-img-preview').src;
+                var joindate = document.getElementById('joiningdate').value;
+                employee["joining"] = joindate.split('-').reverse().join('/');
+                employee["AssignManager"] = document.getElementById('assignmanager').value;
+                employee["AssignProject"] = document.getElementById('assignproject').value;
+                employee["status"] = "Active";
 
-        if (isValid && !exists) {
-            employee["empid"] = document.getElementById('empid').value;
-            employee["firstname"] = document.getElementById('firstname').value;
-            employee["lastname"] = document.getElementById('lastname').value;
-            var dob = document.getElementById('dob').value;
-            employee["DOB"] = dob.split('-').reverse().join('/');
-            employee["emailid"] = document.getElementById('email').value;
-            employee["mobile"] = document.getElementById('mobile').value;
-            employee["location"] = document.getElementById('location').value;
-            employee["Department"] = document.getElementById('department').value;
-            employee["jobtitle"] = document.getElementById('jobtitle').value;
-            employee["profilepath"] = document.getElementById('profile-picture').value;
-            var joindate = document.getElementById('joiningdate').value;
-            employee["joining"] = joindate.split('-').reverse().join('/');
-            employee["AssignManager"] = document.getElementById('assignmanager').value;
-            employee["AssignProject"] = document.getElementById('assignproject').value;
-            employee["status"] = "Active";
+                let localdata = JSON.parse(localStorage.getItem("data"));
+                localdata.Employees.push(employee);
+                localStorage.setItem("data", JSON.stringify(localdata));
 
-            let localdata = JSON.parse(localStorage.getItem("data"));
-            localdata.Employees.push(employee);
-            localStorage.setItem("data", JSON.stringify(localdata));
+                EmployeeMenu();
+                CustomAlert('success', 'Employee added successfully');
+                
+            }
+        } else if (AddOrEditFlag === "edit") {
+            if (isValid) {
+                let employee = employees.find(function(emp) {
+                    return emp.empid === empid;
+                });
+                employee["empid"] = document.getElementById('empid').value;
+                employee["firstname"] = document.getElementById('firstname').value;
+                employee["lastname"] = document.getElementById('lastname').value;
+                var dob = document.getElementById('dob').value;
+                employee["DOB"] = dob.split('-').reverse().join('/');
+                employee["emailid"] = document.getElementById('email').value;
+                employee["mobile"] = document.getElementById('mobile').value;
+                employee["location"] = document.getElementById('location').value;
+                employee["Department"] = document.getElementById('department').value;
+                employee["jobtitle"] = document.getElementById('jobtitle').value;
+                employee["profilepath"] = document.getElementById('uploaded-img-preview').src;
+                var joindate = document.getElementById('joiningdate').value;
+                employee["joining"] = joindate.split('-').reverse().join('/');
+                employee["AssignManager"] = document.getElementById('assignmanager').value;
+                employee["AssignProject"] = document.getElementById('assignproject').value;
+                employee["status"] = "Active";
 
-            EmployeeMenu();
-            CustomAlert('success', 'Employee added successfully');
-            
+
+                localStorage.setItem("data", JSON.stringify(data));
+
+                EmployeeMenu();
+                CustomAlert('success', 'Employee updated successfully');
+            }
         }
     } else {
         console.error('Data or Employees is null');
