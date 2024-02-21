@@ -1,21 +1,26 @@
 
 
-function addEmployee() {
-    let employee = {};
-    let isValid = true;
+function getFieldValue(fieldId) {
+    return document.getElementById(fieldId).value;
+}
 
-    var fields = ['empid', 'firstname', 'lastname', 'dob', 'email', 'mobile' , 'joiningdate', 'location', 'department'];
-    fields.forEach(function(fieldId) {
-        var field = document.getElementById(fieldId);
-        var errorSpan = document.getElementById(fieldId + '-span');
+
+function addEmployee() {
+    const fields = ['empid', 'firstname', 'lastname', 'dob', 'email', 'mobile' , 'joiningdate', 'location', 'department'];
+    let isValid = true;
+    let employee = {};
+
+    fields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        const errorSpan = document.getElementById(`${fieldId}-span`);
 
         if (field.value.trim() === '') {
             field.classList.add('err');
-            errorSpan.innerHTML = "<img src='assets/exclamation-mark-diamond.svg' alt='error' style='height:15px' > " + "This " + fieldId + ' field is required';
+            errorSpan.innerHTML = `<img src='assets/exclamation-mark-diamond.svg' alt='error' style='height:15px' > This ${fieldId} field is required`;
             isValid = false;
         } else if (!field.checkValidity()) {
             field.classList.add('err');
-            errorSpan.innerHTML = "<img src='assets/exclamation-mark-diamond.svg' alt='error' style='height:15px' > " + "Please enter the valid data";
+            errorSpan.innerHTML = `<img src='assets/exclamation-mark-diamond.svg' alt='error' style='height:15px' > Please enter the valid data`;
             isValid = false;
         } else {
             field.classList.remove('err');
@@ -23,15 +28,13 @@ function addEmployee() {
         }
     });
 
-
-
     var data = JSON.parse(localStorage.getItem("data"));
     var employees = data ? data.Employees : null;
 
     if (data && employees) {
         var exists = false;
-        var empid = document.getElementById('empid').value;
-        var AddOrEditFlag = document.getElementById('add-or-edit-employee-flag').value;
+        var empid = getFieldValue('empid');
+        var AddOrEditFlag = getFieldValue('add-or-edit-employee-flag');
         employees.forEach(employee => {
             if (employee.empid === empid && AddOrEditFlag === "add") {
                 CustomAlert('error', 'Employee ID already exists');
@@ -39,80 +42,69 @@ function addEmployee() {
                 return false;
             }
         }); 
-        if (AddOrEditFlag === "add") {
-            if (isValid && !exists) {
-                employee["empid"] = document.getElementById('empid').value;
-                employee["firstname"] = document.getElementById('firstname').value;
-                employee["lastname"] = document.getElementById('lastname').value;
-                var dob = document.getElementById('dob').value;
-                employee["DOB"] = dob.split('-').reverse().join('/');
-                employee["emailid"] = document.getElementById('email').value;
-                employee["mobile"] = document.getElementById('mobile').value;
-                employee["location"] = document.getElementById('location').value;
-                employee["Department"] = document.getElementById('department').value;
-                employee["jobtitle"] = document.getElementById('jobtitle').value;
-                employee["profilepath"] = document.getElementById('uploaded-img-preview').src;
-                var joindate = document.getElementById('joiningdate').value;
-                employee["joining"] = joindate.split('-').reverse().join('/');
-                employee["AssignManager"] = document.getElementById('assignmanager').value;
-                employee["AssignProject"] = document.getElementById('assignproject').value;
-                employee["status"] = "Active";
 
-                let localdata = JSON.parse(localStorage.getItem("data"));
-                localdata.Employees.push(employee);
-                localStorage.setItem("data", JSON.stringify(localdata));
+        if (AddOrEditFlag === "add" && isValid && !exists) {
+            employee = {
+                "empid": getFieldValue('empid'),
+                "firstname": getFieldValue('firstname'),
+                "lastname": getFieldValue('lastname'),
+                "DOB": getFieldValue('dob'),
+                "emailid": getFieldValue('email'),
+                "mobile": getFieldValue('mobile'),
+                "location": getFieldValue('location'),
+                "Department": getFieldValue('department'),
+                "jobtitle": getFieldValue('jobtitle'),
+                "profilepath": document.getElementById('uploaded-img-preview').src,
+                "joining": getFieldValue('joiningdate'),
+                "AssignManager": getFieldValue('assignmanager'),
+                "AssignProject": getFieldValue('assignproject'),
+                "status": "Active"
+            };
 
-                EmployeeMenu();
-                CustomAlert('success', 'Employee added successfully');
-                
-            }
-        } else if (AddOrEditFlag === "edit") {
-            if (isValid) {
-                let employee = employees.find(function(emp) {
-                    return emp.empid === empid;
-                });
-                employee["empid"] = document.getElementById('empid').value;
-                employee["firstname"] = document.getElementById('firstname').value;
-                employee["lastname"] = document.getElementById('lastname').value;
-                var dob = document.getElementById('dob').value;
-                employee["DOB"] = dob.split('-').reverse().join('/');
-                employee["emailid"] = document.getElementById('email').value;
-                employee["mobile"] = document.getElementById('mobile').value;
-                employee["location"] = document.getElementById('location').value;
-                employee["Department"] = document.getElementById('department').value;
-                employee["jobtitle"] = document.getElementById('jobtitle').value;
-                employee["profilepath"] = document.getElementById('uploaded-img-preview').src;
-                var joindate = document.getElementById('joiningdate').value;
-                employee["joining"] = joindate.split('-').reverse().join('/');
-                employee["AssignManager"] = document.getElementById('assignmanager').value;
-                employee["AssignProject"] = document.getElementById('assignproject').value;
-                employee["status"] = "Active";
+            let localdata = JSON.parse(localStorage.getItem("data"));
+            localdata.Employees.push(employee);
+            localStorage.setItem("data", JSON.stringify(localdata));
 
+            EmployeeMenu();
+            CustomAlert('success', 'Employee added successfully');
+        } else if (AddOrEditFlag === "edit" && isValid) {
+            let employee = employees.find(emp => emp.empid === empid);
+            Object.assign(employee, {
+                "empid": getFieldValue('empid'),
+                "firstname": getFieldValue('firstname'),
+                "lastname": getFieldValue('lastname'),
+                "DOB": getFieldValue('dob'),
+                "emailid": getFieldValue('email'),
+                "mobile": getFieldValue('mobile'),
+                "location": getFieldValue('location'),
+                "Department": getFieldValue('department'),
+                "jobtitle": getFieldValue('jobtitle'),
+                "profilepath": document.getElementById('uploaded-img-preview').src,
+                "joining": getFieldValue('joiningdate'),
+                "AssignManager": getFieldValue('assignmanager'),
+                "AssignProject": getFieldValue('assignproject'),
+                "status": "Active"
+            });
 
-                localStorage.setItem("data", JSON.stringify(data));
+            localStorage.setItem("data", JSON.stringify(data));
 
-                EmployeeMenu();
-                CustomAlert('success', 'Employee updated successfully');
-            }
+            EmployeeMenu();
+            CustomAlert('success', 'Employee updated successfully');
         }
     } else {
         console.error('Data or Employees is null');
     }
 }
 
-
-
 function EditEmployeeDetails(empid){
-    var data = JSON.parse(localStorage.getItem("data"));
-    if (!data ||!data.Employees) {
+    const data = JSON.parse(localStorage.getItem("data"));
+    if (!data || !data.Employees) {
         CustomAlert("error", "No employee data found in local storage.");
         return;
     }
-    var employees = data.Employees;
-    var employee = employees.find(function(emp) {
-        return emp.empid === empid;
-    });
-    console.log("employee: ", employee);
+
+    const employee = data.Employees.find(emp => emp.empid === empid);
+
 
     //load the addemployee.html file and fill the fileds with data.
     var mainContainer = document.querySelector(".main-content");
@@ -139,20 +131,15 @@ function EditEmployeeDetails(empid){
             document.getElementById('empid').setAttribute('readonly', 'readonly');
             document.getElementById('firstname').value = employee.firstname;
             document.getElementById('lastname').value = employee.lastname;
-            var dob = employee.DOB;
-            dob = dob.split('/').reverse().join('-');
-            document.getElementById('dob').value = dob;
+            document.getElementById('dob').value = employee.DOB;
             document.getElementById('email').value = employee.emailid;
             document.getElementById('mobile').value = employee.mobile;
-            var joindate = employee.joining;
-            joindate = joindate.split('/').reverse().join('-');
-            document.getElementById('joiningdate').value = joindate;
+            document.getElementById('joiningdate').value = employee.joining;
             document.getElementById('location').value = employee.location;
             document.getElementById('assignmanager').value = employee.AssignManager;
             document.getElementById('assignproject').value = employee.AssignProject;
             document.getElementById('department').value = employee.Department;
             document.getElementById('jobtitle').value = employee.jobtitle;
-            // document.getElementById('profile-picture').value = employee.profilepath;
             document.getElementById('uploaded-img-preview').src = employee.profilepath;
             
         })
@@ -161,31 +148,30 @@ function EditEmployeeDetails(empid){
 
 
 function addEmployeeEventListeners() {
-    var fields = ['empid', 'firstname', 'lastname', 'dob', 'email', 'mobile' , 'joiningdate', 'location', 'department'];
-    var fieldsinfo = {
+    const fields = ['empid', 'firstname', 'lastname', 'dob', 'email', 'mobile' , 'joiningdate', 'location', 'department'];
+    const fieldsinfo = {
         'empid': 'Invalid Format, Only TZ123456 allowed',
         'firstname': 'Invalid Format, Only alphabets allowed',
         'lastname': 'Invalid Format, Only alphabets allowed',
         'dob': 'Invalid Format, Only DD/MM/YYYY allowed',
-        'email': 'Invalid Format, Only name123@mail.com allowed',
+        'email': 'Invalid Format, Only joe.a@technovert.com allowed',
         'mobile': 'Invalid Format, Only digits allowed',
         'joiningdate': 'Invalid Format, Only DD/MM/YYYY allowed',
         'location': 'Invalid Format, Only alphabets allowed',
         'department': 'Invalid Format, Only alphabets allowed'
     }
-    // Loop through each field
-    fields.forEach(function(fieldId) {
-        var field = document.getElementById(fieldId);
-        var errorSpan = document.getElementById(fieldId + '-span');
 
-        // Add event listener to each field
-        field.addEventListener('input', function() {
-            if (field.value.trim() === '') { // Check if the value is empty
+    fields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        const errorSpan = document.getElementById(`${fieldId}-span`);
+
+        field.addEventListener('input', () => {
+            if (field.value.trim() === '') {
                 field.classList.add('err');
-                errorSpan.innerHTML = "<img src='assets/exclamation-mark-diamond.svg' alt='error' style='height:15px' > " + "This " + fieldId + ' field is required';
+                errorSpan.innerHTML = `<img src='assets/exclamation-mark-diamond.svg' alt='error' style='height:15px' > This ${fieldId} field is required`;
             } else if (!field.checkValidity()) {
                 field.classList.add('err');
-                errorSpan.innerHTML = "<img src='assets/exclamation-mark-diamond.svg' alt='error' style='height:15px' > " + fieldsinfo[fieldId];
+                errorSpan.innerHTML = `<img src='assets/exclamation-mark-diamond.svg' alt='error' style='height:15px' > ${fieldsinfo[fieldId]}`;
             } else {
                 field.classList.remove('err');
                 errorSpan.innerText = '';
@@ -198,7 +184,8 @@ function addEmployeeEventListeners() {
         // check if the  date is valid and has 18+ years for the present date
         var dob = document.getElementById('dob').value;
         var today = new Date();
-        var dob = new Date(dob);
+        var dob = new Date(dob.split('/').reverse().join('-'));
+        var checkdate = dob.getDate();
         var age = today.getFullYear() - dob.getFullYear();
         var m = today.getMonth() - dob.getMonth();
         if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
@@ -207,22 +194,30 @@ function addEmployeeEventListeners() {
         if (age < 18) {
             document.getElementById('dob').classList.add('err');
             document.getElementById('dob-span').innerHTML = "<img src='assets/exclamation-mark-diamond.svg' alt='error' style='height:15px' > " + "You must be 18 years or older to register";
-        } else {
+        } else if (age >= 18){
             document.getElementById('dob').classList.remove('err');
             document.getElementById('dob-span').innerText = '';
+        } else {
+            document.getElementById('dob').classList.add('err');
+            document.getElementById('dob-span').innerHTML = "<img src='assets/exclamation-mark-diamond.svg' alt='error' style='height:15px' > " + "Invalid Date Format, Only DD/MM/YYYY allowed";
         }
+        
+        document.getElementById('dob').value = document.getElementById('dob').value.replace(/^(\d\d)(\d)$/g,'$1/$2').replace(/^(\d\d\/\d\d)(\d+)$/g,'$1/$2').replace(/[^\d\/]/g,'');
     });
 }
 
+
 function addemployeeFormSubmitValidation(){
-    document.getElementById('add-employee-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // prevent form submission
+    const form = document.getElementById('add-employee-form');
+
+    form.addEventListener('submit', event => {
+        event.preventDefault();
         addEmployeeEventListeners();
     });
-    // document.getElementById('add-employee-form') , prevent default on pressing enter in keyboard only
-    document.getElementById('add-employee-form').addEventListener("keypress", function(event) {
+
+    form.addEventListener("keypress", event => {
         if (event.key === "Enter") {
-          event.preventDefault();
+            event.preventDefault();
         }
     });
 }

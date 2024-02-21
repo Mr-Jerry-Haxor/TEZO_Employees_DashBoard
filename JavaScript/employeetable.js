@@ -103,6 +103,7 @@ function checkboxes() {
     });
 }
 
+
 function checkboxIsChecked(){
     // Get all employee checkboxes
     var checkboxes = document.querySelectorAll('#employees-table tbody tr input[type="checkbox"]');
@@ -131,8 +132,6 @@ function checkboxIsChecked(){
         });
     });
 }
-
-
 
 
 function filtersReset() {
@@ -186,7 +185,7 @@ function filterEmployeesTable() {
 }
 
 
-// below three functions is used to display the filter fields in the table dynamically.
+// below three functions ( populateFilterOptions , checkFilterStatus and LoadFilterOptions ) is used to display the filter fields in the table dynamically.
 
 function populateFilterOptions(selector, filterId) {
     var cells = document.querySelectorAll(selector);
@@ -343,6 +342,7 @@ function deleteEmployee(empid) {
         CustomAlert("error" ,"An error occurred while deleting employees: " + error);
     }
 }
+
 
 function viewmore(empid){
     const divs = document.querySelectorAll(".emp-table-more");

@@ -20,7 +20,7 @@
             <h5>Personal information</h5>
             <div class="form-group">
                 <label for="empid">Emp No</label>
-                <input type="text" id="empid" placeholder="EMP ID" pattern="[T][Z][0-9]{6}" />
+                <input type="text" id="empid" placeholder="EMP ID" pattern="^TZ[0-9]{6}$" />
                 <span class="required-error" id="empid-span"></span>
             </div>
             <div class="form-group-3">
@@ -37,14 +37,14 @@
                 <div class="form-group">
                     <label for="dob">Date of Birth</label>
                     <input type="text" id="dob" placeholder="dd/mm/yyyy" value=""
-                    size=10 maxlength=10  onkeydown="this.value=this.value.replace(/^(\d\d)(\d)$/g,'$1/$2').replace(/^(\d\d\/\d\d)(\d+)$/g,'$1/$2').replace(/[^\d\/]/g,'')"/>
+                    size=10 maxlength=10 />
                     <span class="required-error" id="dob-span"></span>
                 </div>
             </div>
             <div class="form-group-2">
                 <div class="form-group">
                     <label for="email">Email Id</label>
-                    <input type="email" id="email" placeholder="Email ID" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$" />
+                    <input type="email" id="email" placeholder="Email ID" pattern="[a-zA-Z0-9._-]+\@technovert\.com$" />
                     <span class="required-error" id="email-span"></span>
                 </div>
                 <div class="form-group">
