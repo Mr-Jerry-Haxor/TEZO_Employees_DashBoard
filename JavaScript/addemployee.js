@@ -199,7 +199,7 @@ function addEmployeeEventListeners() {
             document.getElementById('dob-span').innerText = '';
         } else {
             document.getElementById('dob').classList.add('err');
-            document.getElementById('dob-span').innerHTML = "<img src='assets/exclamation-mark-diamond.svg' alt='error' style='height:15px' > " + "Invalid Date Format, Only DD/MM/YYYY allowed";
+            document.getElementById('dob-span').innerHTML = "<img src='assets/exclamation-mark-diamond.svg' alt='error' style='height:15px' > " + "Invalid Date , Only DD/MM/YYYY allowed";
         }
         
         document.getElementById('dob').value = document.getElementById('dob').value.replace(/^(\d\d)(\d)$/g,'$1/$2').replace(/^(\d\d\/\d\d)(\d+)$/g,'$1/$2').replace(/[^\d\/]/g,'');
