@@ -1,15 +1,11 @@
-// this file contains the employee table filters and sorting functions , also delete functions.
+define(function() {
 
-class EmployeeManager {
 
-    constructor() {
-        this.selectedLetters = [];
-        this.cPrev = -1;
-    }
-
-    Filters() {
+    var selectedLetters = [];
+    function Filters() {
         document.querySelectorAll('.table-filters-list button').forEach(button => {
             button.addEventListener('click', function(event) {
+                console.log("Filters eventlisterners adding")
                 // event.preventDefault();
                 var letter = this.textContent;
                 // make that button active
@@ -38,7 +34,7 @@ class EmployeeManager {
     }
 
 
-    resetFilters() {
+    function resetFilters() {
         var statusSelect = document.getElementById('filter-Status');
         var locationSelect = document.getElementById('filter-Location');
         var departmentSelect = document.getElementById('filter-Department');
@@ -52,7 +48,7 @@ class EmployeeManager {
     }
 
 
-    filterTableByFirstLettersReset(){
+    function filterTableByFirstLettersReset(){
         selectedLetters = [];
         filterTableByFirstLetters(selectedLetters);
         // remove filteractive from all the letters
@@ -66,7 +62,7 @@ class EmployeeManager {
     }
 
 
-    filterTableByFirstLetters(letters) {
+    function filterTableByFirstLetters(letters) {
         // Filter the emp_filter_sort_data array
         localdata = JSON.parse(localStorage.getItem("data"));
         let employees = localdata.Employees;
@@ -88,7 +84,7 @@ class EmployeeManager {
     }
 
 
-    checkboxes() {
+    function checkboxes() {
         document.getElementById('table-header-checkbox').addEventListener('change', function() {
             // Get all employee checkboxes
             var checkboxes = document.querySelectorAll('#employees-table tbody tr input[type="checkbox"]');
@@ -109,7 +105,7 @@ class EmployeeManager {
     }
 
 
-    checkboxIsChecked(){
+    function checkboxIsChecked(){
         // Get all employee checkboxes
         var checkboxes = document.querySelectorAll('#employees-table tbody tr input[type="checkbox"]');
         
@@ -140,10 +136,7 @@ class EmployeeManager {
 
 
 
-    // the below function is used to filter the table based on the status, location and department
-
-
-    filtersReset() {
+    function filtersReset() {
         // Get the select elements
         var statusSelect = document.getElementById('filter-Status');
         var locationSelect = document.getElementById('filter-Location');
@@ -151,21 +144,23 @@ class EmployeeManager {
         statusSelect.selectedIndex = 0;
         locationSelect.selectedIndex = 0;
         departmentSelect.selectedIndex = 0;
-        this.filterEmployeesTable();
-        // filterTableByFirstLetters(selectedLetters); // This function is not defined in the provided code
+        filterEmployeesTable();
+        filterTableByFirstLetters(selectedLetters);
         if (statusSelect.value == "" && locationSelect.value == "" && departmentSelect.value == "") {
             var filterinactive = document.getElementById('filters-reset-apply-buttons');
             filterinactive.style.display = "none";
         }
     }
 
-    filterEmployeesTable() {
+
+    function filterEmployeesTable() {
         // Get the select elements
         var statusSelect = document.getElementById('filter-Status').value;
         var locationSelect = document.getElementById('filter-Location').value;
         var departmentSelect = document.getElementById('filter-Department').value;
+        
 
-        // if statusSelect or locationSelect or departmentSelect is empty , then display all employees table rows
+        // if statusSelect or locationSelect or departmentSelect is empty , then displya all employees table rows
         if (statusSelect === "" && locationSelect === "" && departmentSelect === "") {
             var rows = document.querySelectorAll('#employees-table tbody tr');
             rows.forEach(row => {
@@ -191,9 +186,11 @@ class EmployeeManager {
         }
     }
 
+
+
     // below three functions ( populateFilterOptions , checkFilterStatus and LoadFilterOptions ) is used to display the filter fields in the table dynamically.
 
-    populateFilterOptions(selector, filterId) {
+    function populateFilterOptions(selector, filterId) {
         var cells = document.querySelectorAll(selector);
         var options = document.getElementById(filterId);
         var values = Array.from(cells).map(cell => cell.textContent);
@@ -206,7 +203,7 @@ class EmployeeManager {
         });
     }
 
-    checkFilterStatus() {
+    function checkFilterStatus() {
         var statusSelect = document.getElementById('filter-Status');
         var locationSelect = document.getElementById('filter-Location');
         var departmentSelect = document.getElementById('filter-Department');
@@ -214,25 +211,27 @@ class EmployeeManager {
         filterButtons.style.display = (statusSelect.value || locationSelect.value || departmentSelect.value) ? "" : "none";
     }
 
-    loadFilterOptions() {
-        this.populateFilterOptions('#employees-table tbody tr td:nth-child(3)', 'filter-Location');
-        this.populateFilterOptions('#employees-table tbody tr td:nth-child(4)', 'filter-Department');
-        this.populateFilterOptions('#employees-table tbody tr td:nth-child(7)', 'filter-Status');
+    function LoadFilterOptions() {
+        populateFilterOptions('#employees-table tbody tr td:nth-child(3)', 'filter-Location');
+        populateFilterOptions('#employees-table tbody tr td:nth-child(4)', 'filter-Department');
+        populateFilterOptions('#employees-table tbody tr td:nth-child(7)', 'filter-Status');
 
         // add eventlisteners to make the reset button and apply button work only when the status or location or  department is has value , if not disable the buttons
         ['filter-Status', 'filter-Location', 'filter-Department'].forEach(filterId => {
-            document.getElementById(filterId).addEventListener('change', this.checkFilterStatus.bind(this));
+            document.getElementById(filterId).addEventListener('change', checkFilterStatus);
         });
 
-        this.checkFilterStatus();
+        checkFilterStatus();
     }
 
-    // the below function helps to sort the table by the column clicked
-    // constructor() {
-    //     this.cPrev = -1; // saves the previous c, used to determine if the same column is clicked again
-    // }
 
-    sortBy(c) {                       //here c = column number
+
+
+
+    cPrev = -1; // global var saves the previous c, used to
+            // determine if the same column is clicked again
+
+    function sortBy(c) {
         var table = document.getElementById("employees-table");
         var rows = table.rows.length; // num of rows
         var columns = table.rows[0].cells.length; // num of columns
@@ -250,9 +249,9 @@ class EmployeeManager {
             }
         }
 
-        var th = arrTable.shift(); // remove the header row from the array, and save it
+        th = arrTable.shift(); // remove the header row from the array, and save it
         
-        if (c !== this.cPrev) { // different column is clicked, so sort by the new column
+        if (c !== cPrev) { // different column is clicked, so sort by the new column
             arrTable.sort(
                 function (a, b) {
                     if (a[c] === b[c]) {
@@ -266,7 +265,7 @@ class EmployeeManager {
             arrTable.reverse();
         }
         
-        this.cPrev = c; // save in previous c
+        cPrev = c; // save in previous c
 
         arrTable.unshift(th); // put the header back in to the array
 
@@ -278,7 +277,10 @@ class EmployeeManager {
         }
     }
 
-    deleteEmployees() {
+
+
+    // function to delete the selected employees
+    function deleteEmployees() {
         try {
             var checkboxes = document.querySelectorAll('#employees-table tbody tr input[type="checkbox"]');
             var data = JSON.parse(localStorage.getItem("data"));
@@ -318,7 +320,8 @@ class EmployeeManager {
         }
     }
 
-    deleteEmployee(empid) {
+    // function to delete the selected single employee.
+    function deleteEmployee(empid) {
         try {
             var confirmation = confirm("Are you sure you want to delete this ( "+ empid + " ) employee?");
             if (!confirmation) {
@@ -343,20 +346,92 @@ class EmployeeManager {
             CustomAlert("error" ,"An error occurred while deleting employees: " + error);
         }
     }
-}
 
-function viewmore(empid){
-    const divs = document.querySelectorAll(".emp-table-more");
-    divs.forEach(div => {
-        // div.style.display = "none";
-        if (div.id !== empid) {
-            div.style.display = "none";
+
+    function viewmore(empid){
+        const divs = document.querySelectorAll(".emp-table-more");
+        empid = empid + "_div";
+        divs.forEach(div => {
+            // div.style.display = "none";
+            if (div.id !== empid) {
+                div.style.display = "none";
+            }
+        });
+        const divMore = document.querySelector("#"+empid);
+        if (divMore.style.display == "none") {
+            divMore.style.display = "flex";
+        } else {
+            divMore.style.display = "none";
         }
-    });
-    const divMore = document.querySelector("#"+empid);
-    if (divMore.style.display == "none") {
-        divMore.style.display = "flex";
-    } else {
-        divMore.style.display = "none";
     }
-}
+
+
+    function EditEmployeeDetails(empid){
+        const data = JSON.parse(localStorage.getItem("data"));
+        if (!data || !data.Employees) {
+            CustomAlert("error", "No employee data found in local storage.");
+            return;
+        }
+
+        const employee = data.Employees.find(emp => emp.empid === empid);
+
+
+        //load the addemployee.html file and fill the fileds with data.
+        var mainContainer = document.querySelector(".main-content");
+        fetch("HTML/AddEmployee.html")
+            .then((res) => res.text())
+            .then((data) => {
+                    mainContainer.innerHTML = data;
+                })
+            .then(() => {
+                    const employeeMenu = document.querySelector("#employee-menu");
+                    employeeMenu.classList.add("menuactive");
+                    const rolesMenu = document.querySelector("#roles-menu");
+                    rolesMenu.classList.remove("menuactive");
+                })
+            .then(() => {
+                addemployeeFormSubmitValidation();
+                })
+            .then(() => {
+                // get element by ID and set the value
+                document.getElementById("add-employee-title").innerText = "Edit Employee";
+                document.getElementById('form-submit').innerText = "Update Employee";
+                document.getElementById('add-or-edit-employee-flag').value = "edit";
+                document.getElementById('empid').value = employee.empid;
+                document.getElementById('empid').setAttribute('readonly', 'readonly');
+                document.getElementById('firstname').value = employee.firstname;
+                document.getElementById('lastname').value = employee.lastname;
+                document.getElementById('dob').value = employee.DOB;
+                document.getElementById('email').value = employee.emailid;
+                document.getElementById('mobile').value = employee.mobile;
+                document.getElementById('joiningdate').value = employee.joining;
+                document.getElementById('location').value = employee.location;
+                document.getElementById('assignmanager').value = employee.AssignManager;
+                document.getElementById('assignproject').value = employee.AssignProject;
+                document.getElementById('department').value = employee.Department;
+                document.getElementById('jobtitle').value = employee.jobtitle;
+                document.getElementById('uploaded-img-preview').src = employee.profilepath;
+                
+            })
+            .catch((error) => console.error('Error:', error));
+    }
+
+    return {
+        checkboxes: checkboxes,
+        checkboxIsChecked: checkboxIsChecked,
+        resetFilters: resetFilters,
+        filtersReset: filtersReset,
+        filterEmployeesTable: filterEmployeesTable,
+        Filters:Filters,
+        populateFilterOptions: populateFilterOptions,
+        checkFilterStatus: checkFilterStatus,
+        LoadFilterOptions: LoadFilterOptions,
+        filterTableByFirstLettersReset: filterTableByFirstLettersReset,
+        filterTableByFirstLetters: filterTableByFirstLetters,
+        viewmore: viewmore,
+        deleteEmployees: deleteEmployees,
+        deleteEmployee: deleteEmployee,
+        EditEmployeeDetails: EditEmployeeDetails,
+        sortBy: sortBy
+    };
+});

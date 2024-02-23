@@ -4,7 +4,6 @@ function loadEmployeeData() {
     fetch("data.json")
         .then(response => response.json())
         .then(data => {
-            
             if (localStorage.getItem("data") === null) {
                 localStorage.setItem("data", JSON.stringify(data));
             }
@@ -95,22 +94,25 @@ function LoadEmployeeDataByArray(employeeArray){
         let cellMore = document.createElement('td');
         let buttonmore = document.createElement('button');
         buttonmore.className = "button-more";
+        buttonmore.id = employee.empid + "_more";
         buttonmore.textContent = "...";
         let empid = employee.empid+ "_more";
         buttonmore.setAttribute("onclick", "viewmore('"+empid+"')");
         cellMore.appendChild(buttonmore);
         let divMore = document.createElement('div');
         divMore.className = "emp-table-more";
-        divMore.id = employee.empid+"_more";
+        divMore.id = employee.empid+"_more"+ "_div";
         let aViewDetails = document.createElement('button');
         aViewDetails.className = "button-view-details";
         aViewDetails.textContent = "View Details";
         let aEdit = document.createElement('button');
         aEdit.className = "button-edit";
+        aEdit.id = employee.empid;
         aEdit.setAttribute("onclick", "EditEmployeeDetails('"+employee.empid+"')");
         aEdit.textContent = "Edit";
         let aDelete = document.createElement('button');
         aDelete.className = "button-delete";
+        aDelete.id = employee.empid;
         aDelete.setAttribute("onclick", "deleteEmployee('"+employee.empid+"')");
         aDelete.textContent = "Delete";
         divMore.appendChild(aViewDetails);
