@@ -295,6 +295,7 @@ define(function() {
 
         return {
             loadEmployeeData: loadEmployeeData,
+            LoadEmployeeDataByArray: LoadEmployeeDataByArray,
             export_options: export_options,
             download_table_as_csv: download_table_as_csv,
             download_table_as_xlsx: download_table_as_xlsx,
